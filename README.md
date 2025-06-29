@@ -1,3 +1,23 @@
+# neurolab-mongo-python
+
+![image](https://user-images.githubusercontent.com/57321948/196933065-4b16c235-f3b9-4391-9cfe-4affcec87c35.png)
+
+### Step 1 - Install the requirements
+
+```bash
+pip install -r requirements.txt
+```
+
+### Step 2 - Run main.py file
+
+```bash
+python main.py
+```
+
+* Ineuron Lab 所建立的 MongoDB 範本，但無法直接使用 ineuron lab ，此 section 是手動建立的（從sunnysavita10/MongoDB-Connector-PYPI-Package 的初始 commit 內容複製而來）！
+
+---
+
 # requirements_dev.txt we use for the testing
 It makes it easier to install and manage dependencies for development and testing, separate from the dependencies required for production.
 
