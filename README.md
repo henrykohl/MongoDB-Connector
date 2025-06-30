@@ -25,9 +25,32 @@ python main.py
 
 * (34:15) 執行 `python template.py`
 
-* (38:50) Problem statement
+## (38:50) Problem statement
 
+* Python Package
+       |
+       ----> folder
+                |
+                ----> multiple files (python)
 
+* Problem statement: Release our own package -> Push our entire code to the Github
+
+* (46:30) MongoDB --> NoSql => Document{Key: value} (Dict, JSON, ...)
+           |
+           -----> Local server
+           |
+           -----> Cloud service (Atlas)  
+  > If using Python-Client, we'll have to write down some sort of python scripts
+
+* Unified package -- Python package
+  > write down the code (follow the documentation guideline): 1. MongoDB 2. Cassandra 3. My-sql
+  >
+  > --> single function -- passing: 1. URL 2. DB 3. Collection -- (e.g., `insert.data()`)
+
+## Code
+
+* 完成 `requirements.txt`、`requirements_dev.txt`、`setup.py`、`pyproject.toml`、`tox.ini`
+> 在 cfg 檔案中 每一個 [] 後面對應的是 Key & value
 
 ---
 
