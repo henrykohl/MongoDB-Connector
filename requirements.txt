@@ -6,4 +6,4 @@ numpy
 ensure
 pytest
 
--e .
+# -e . # 沒有 setup.py 時，需要隱藏此行
