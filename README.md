@@ -19,6 +19,17 @@ python main.py
 * 從 sunnysavita10/MongoDB-Connector-PYPI-Package 所在 github 執行 fork，後用 vscode.dev 開啟自己的 repository，然後將一些檔案刪除到如（23:00）這般，再 push 到自己的 repository，完成類似用 ineuron lab 所建立的 MongoDB 範本，接著用 Gitpod.io 開啟自己的 Github repository，接著就可以按照 Lecture 的步驟進行操作!
 
 ---
+# Lecture Note -- [How to Create Python Package for MLOps Project](https://www.youtube.com/watch?v=vKi-l__1xg0)
+
+* GitHub Repository Resource -- [MongoDB-Connector-PYPI-Package](https://github.com/sunnysavita10/MongoDB-Connector-PYPI-Package)
+
+* (34:15) 執行 `python template.py`
+
+* (38:50) Problem statement
+
+
+
+---
 
 # requirements_dev.txt we use for the testing
 It makes it easier to install and manage dependencies for development and testing, separate from the dependencies required for production.
