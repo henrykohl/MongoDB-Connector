@@ -50,7 +50,11 @@ python main.py
 ## Code
 
 * 完成 `requirements.txt`、`requirements_dev.txt`、`setup.py`、`pyproject.toml`、`tox.ini`
-> 在 cfg 檔案中 每一個 [] 後面對應的是 Key & value
+  > 在 cfg 檔案中 每一個 [] 後面對應的是 Key & value
+  >
+  > tox.ini (testing for development environment) are using for testing our code in local environment in a development environment if we want our code in a local environment or while we are going to integrate it. While performing this CI, I'm going to perform it by using the GitHub. GitHub is also having one service which provides us a server -- the service name is called GitHub Action. PS. `-v` is verbose -- whatever execution is happening in backend, you are going to see all the execution in your screen.
+  >
+  > mypi 是 linting tool: check the code whether it's correct or not.
 
 ---
 
