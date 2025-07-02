@@ -19,9 +19,11 @@ python main.py
 * 從 sunnysavita10/MongoDB-Connector-PYPI-Package 所在 github 執行 fork，後用 vscode.dev 開啟自己的 repository，然後將一些檔案刪除到如（23:00）這般，再 push 到自己的 repository，完成類似用 ineuron lab 所建立的 MongoDB 範本，接著用 Gitpod.io 開啟自己的 Github repository，接著就可以按照 Lecture 的步驟進行操作!
 
 ---
-# Lecture Note -- [How to Create Python Package for MLOps Project](https://www.youtube.com/watch?v=vKi-l__1xg0)
+# Lecture 3 Note -- [How to Create Python Package for MLOps Project](https://www.youtube.com/watch?v=vKi-l__1xg0)
 
-* GitHub Repository Resource -- [MongoDB-Connector-PYPI-Package](https://github.com/sunnysavita10/MongoDB-Connector-PYPI-Package)
+* GitHub Repository Resource 1 -- [MongoDB-Connector-PYPI-Package](https://github.com/sunnysavita10/MongoDB-Connector-PYPI-Package)
+
+* GitHub Repository Resource 2 -- [MongoDB-Connector](https://github.com/sunnysavita10/MongoDB-Connector)
 
 * (34:15) 執行 `python template.py`
 
@@ -52,9 +54,41 @@ python main.py
 * 完成 `requirements.txt`、`requirements_dev.txt`、`setup.py`、`pyproject.toml`、`tox.ini`
   > 在 cfg 檔案中 每一個 [] 後面對應的是 Key & value
   >
-  > tox.ini (testing for development environment) are using for testing our code in local environment in a development environment if we want our code in a local environment or while we are going to integrate it. While performing this CI, I'm going to perform it by using the GitHub. GitHub is also having one service which provides us a server -- the service name is called GitHub Action. PS. `-v` is verbose -- whatever execution is happening in backend, you are going to see all the execution in your screen.
+  > tox.ini (testing for development environment) are using for testing our code in local environment in a development environment if we want our code in a local environment or while we are going to integrate it. While performing this CI, I'm going to perform it by using the GitHub. GitHub is also having one service which provides us a server -- the service name is called GitHub Action. Provide you the local environment for testing your application (the number of environments can be more than one). PS. `-v` is verbose -- whatever execution is happening in backend, you are going to see all the execution in your screen. PS. `--count` is the command line argument. PS. (E9, F63, ...) **PEP** they define the python protocol. PS. `--select ... --statistics` can be removed.
   >
   > mypi 是 linting tool: check the code whether it's correct or not.
+
+* (1:44:35) 完成 `.github/workflows/ci.yaml`
+
+* 建立 `.github/workflows/python-publish.yaml`
+  > 主要來自於 [Publish Python Package](https://github.com/henrykohl/MongoDB-Connector-PYPI-Package/actions/new)，點選 **Configure**，就可以看到  Github 編寫好的 yaml/yml 檔案。
+
+* (1:50:05) review [PyPI · The Python Package Index](https://pypi.org/)
+  > 註冊帳號，獲得 TOKEN
+  >
+  > 在GitHub 的 setting 中 Secrets and variables，設置 New secret，Name* 為 `PYPI_API_TOKEN`，Secret* 為剛獲取的 TOKEN
+
+* (2:05:20) `src/mongodb_connect/mongo_crud.py`（more details in Lecture 4），`tests/integration/__init__.py`，`tests/__init__.py`  
+  > Everything we have unified in a single method
+
+* (2:08:58) 刪除 `main.py`
+
+* (2:09:15) 執行 git push
+  > ```bash
+  > git add .
+  > git commit -m "everything updated"
+  > git push -u origin main
+  > ```
+
+* (2:11:25) GitHub Release
+  > 按下 **Create a new release**: \n
+  > * Choose a tag: `v0.0.1` \n
+  > * Release a title: `0.0.1` \n
+  > * Describe a release: `this is my testing package`
+  > * 按下 `Publish release`
+  >
+
+  > 在 GitHub Actions 頁面可以看到，The package is going to be deployed in backend
 
 ---
 
