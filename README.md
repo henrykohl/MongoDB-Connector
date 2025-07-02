@@ -27,7 +27,7 @@ python main.py
 
 * (34:15) 執行 `python template.py`
 
-## (38:50) Problem statement
+## Problem statement (38:50)
 
 * Python Package
        |
@@ -37,6 +37,8 @@ python main.py
 
 * Problem statement: Release our own package -> Push our entire code to the Github
 
+* In this lecture, we create our own package.
+
 * (46:30) MongoDB --> NoSql => Document{Key: value} (Dict, JSON, ...)
            |
            -----> Local server
@@ -44,19 +46,35 @@ python main.py
            -----> Cloud service (Atlas)  
   > If using Python-Client, we'll have to write down some sort of python scripts
 
-* Unified package -- Python package
+* Unified package -- Unified Python package
   > write down the code (follow the documentation guideline): 1. MongoDB 2. Cassandra 3. My-sql
   >
-  > --> single function -- passing: 1. URL 2. DB 3. Collection -- (e.g., `insert.data()`)
-
-## Code
-
-* 完成 `requirements.txt`、`requirements_dev.txt`、`setup.py`、`pyproject.toml`、`tox.ini`
-  > 在 cfg 檔案中 每一個 [] 後面對應的是 Key & value
+  > --> single function -- passing different parameters: 1. URL 2. DB name 3. Collection -- (e.g., `insert_data()` to store a single row or multiple rows). So in such a way, we  can customize my code and publish the code in terms of the package. 
   >
-  > tox.ini (testing for development environment) are using for testing our code in local environment in a development environment if we want our code in a local environment or while we are going to integrate it. While performing this CI, I'm going to perform it by using the GitHub. GitHub is also having one service which provides us a server -- the service name is called GitHub Action. Provide you the local environment for testing your application (the number of environments can be more than one). PS. `-v` is verbose -- whatever execution is happening in backend, you are going to see all the execution in your screen. PS. `--count` is the command line argument. PS. (E9, F63, ...) **PEP** they define the python protocol. PS. `--select ... --statistics` can be removed.
-  >
-  > mypi 是 linting tool: check the code whether it's correct or not.
+  > We are going to create one python package. The python package name is a DB connector or MongoDB connector.  Initially, we will write down the code for MongoDB inside our own customized package. We will customize all the steps whatever step is required for connecting with MongoDB. Customizing in such a way, we don't need to follow all the step again and again. We create our package. Inside the package, it means that inside the folder we will be having a python file. We will write down the MongoDB code in such a way. You can download the package. Then, you can utilize those thing in a unified manner. No need to follow all the step again and again (e.g., database creation, collection creation and all).
+
+
+## Code (54:50)
+
+* 完成 `requirements.txt`、`requirements_dev.txt`、`setup.py`、`pyproject.toml`、`tox.ini`，執行 `git push`
+  > ```bash
+  > git init
+  > git add .
+  > git commit -m "code updated"
+  > git config --global user.email "github郵箱地址"
+  > git config --global user.name "github帳號名稱"
+  > git branch -M main # 此步驟沒執行，git push 會出錯
+  > git remote add origin https://github.com/henrykohl
+  > git push -u origin main
+  > ```
+
+* code explanation
+  > (1:10:45) `requirements_dev.txt`: requirement for development environment. dsnpython -- for MongoDB. ensure -- use for ensuring something. pytest -- test for use cases. tox (用在tox.ini) --  using the tox, we can create a testing environment. black and flask8 -- linting tools. \n
+  > (1:14:55) `setup.py`: \
+  > (1:23:45) `setup.cfg`: 檔案中 每一個 tag/title - 也就是 [] - 後面對應的是 Key & value. It's just an extension of `setup.py`, representing a configuration of `setup.py`. \
+  > (1:30:40) `tox.ini` (testing for development environment) are using for testing our code in local environment in a development environment if we want our code in a local environment or while we are going to integrate it. So, while performing this CI, I'm going to perform it by using the GitHub. GitHub is also having one service which provides us a server -- the service name is called GitHub Action. Once it creats the python environment, the first place it will create a python environment. Then, it will install the dependency inside that environment. In [testenv], `deps=...` will install the requirements_dev.txt. Finally, it's going to perform the following particular commands (`commands=...`). `flake8 src ...` means that going into the `src` folder, it is using the `flake8`. `mypy src/` means that checking `src/` we are using `mypy`. `mypy` is a linting tool, which is able to check whether the code is correct. Using `flake8` for all our code is following all the protocol or not. Again, we are going to do testing by using the tox.ini file. `pytest -v ...` will do unit testing and integration testing.
+  > Provide you the local environment for testing your application (the number of environments can be more than one). We can create the environments for different versions. PS. `-v` is verbose -- whatever execution is happening in backend, you are going to see all the execution in your screen. PS. `--count` is the command line argument. PS. (E9, F63, ...) **PEP** they define the python protocol. PS. `--select ... --statistics` can be removed. PS. `mypy` 是 linting tool: check the code whether it's correct or not. \
+  > (1:42:45)  `pyproject.toml`: the configuration is related to/ visible to our packages. 
 
 * (1:44:35) 完成 `.github/workflows/ci.yaml`
 
