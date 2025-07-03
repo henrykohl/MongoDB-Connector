@@ -78,13 +78,20 @@ python main.py
 
 * (1:44:35) 完成 `.github/workflows/ci.yaml`
 
-* 建立 `.github/workflows/python-publish.yaml`
-  > 主要來自於 [Publish Python Package](https://github.com/henrykohl/MongoDB-Connector-PYPI-Package/actions/new)，點選 **Configure**，就可以看到  Github 編寫好的 yaml/yml 檔案。
+* (1:45:00) 建立 `.github/workflows/python-publish.yaml`
+  > 主要來自於 [Publish Python Package](https://github.com/henrykohl/MongoDB-Connector/actions/new)，點選 **Configure**，就可以看到  Github 編寫好的 yaml/yml 檔案。\
+  > `flake8 .` 中那一個點是指 current directory. We are checking into the current directory, whatever thing is wrong like we have not written according to the protocol. It will generate a like warning or information of the message regarding to those thing/those issues. `flake8` 後也可以指定一個 specific folder over here.
+  It means that you can look into the entire workspace. \
+  > `pytest`: we are using for testing like we have test cases for that. \ 
+  > (2:03:21) this particular configuration for deploying the code on PYPI.
 
 * (1:50:05) review [PyPI · The Python Package Index](https://pypi.org/)
-  > 註冊帳號，獲得 TOKEN
+  > 註冊帳號，登入pypi，在 Account setting 中 API tokens，按下 Add API token，在 Create API token 頁面中，設定 Token name (e.g., deconnection) 與 scope (e.g., entire account)，按下 Create token，獲得 TOKEN
   >
   > 在GitHub 的 setting 中 Secrets and variables，設置 New secret，Name* 為 `PYPI_API_TOKEN`，Secret* 為剛獲取的 TOKEN
+
+* (2:00:15) 解析 `.github/workflows/ci.yaml`
+  > This file is not related to PYPI. This is just for the continuous integration. We are going to integrate our code over the GitHub. And GitHub is providing a server. The server name is nothing GitHub Action.GitHub action is a service. Under that we have different servers (e.g., Windows, Linux, ...). In ci.yaml, the particular code/configuration we have written tells us if we are going to integrate our code with GitHub, so immediately we can run all the test cases. We can check our code is fine or not. This ci file is just for testing our code while integrating. This is the work for development.  
 
 * (2:05:20) `src/mongodb_connect/mongo_crud.py`（more details in Lecture 4），`tests/integration/__init__.py`，`tests/__init__.py`  
   > Everything we have unified in a single method

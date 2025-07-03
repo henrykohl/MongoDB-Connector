@@ -19,9 +19,9 @@ def get_requiremet(file_path:str)->List[str]:
    
 
 __version__ = "0.0.4"
-REPO_NAME = "MongoDB-Connector-PYPI-Package" # 修改過
-PKG_NAME= "MongoDB-Connect" # visible on PYPI repository
-AUTHOR_USER_NAME = "henrykohl" # 修改過
+REPO_NAME = "MongoDB-Connector" # 修改過
+PKG_NAME= "MongoDB-Connect" # only visible on PYPI repository
+AUTHOR_USER_NAME = "henrykohl" # 修改過; GitHub 使用者名稱
 AUTHOR_EMAIL = "u860218@gmail.com" # 修改過
 
 setup(
@@ -36,7 +36,7 @@ setup(
     project_urls={
         "Bug Tracker": f"https://github.com/{AUTHOR_USER_NAME}/{REPO_NAME}/issues",
     },
-    package_dir={"": "src"},
+    package_dir={"": "src"}, # 表示 src 是 root 目錄
     packages=find_packages(where="src"),
     install_requires=get_equirement("./requirements_dev.txt"),
     

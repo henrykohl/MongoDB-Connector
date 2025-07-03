@@ -15,10 +15,10 @@ on:
 permissions:
   contents: read
 
-jobs:
+jobs: # the job like we want to deploy this.
   deploy:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # where i'm running it on ubuntu-latest, which is provided by GitHub action itself.
 
     steps:
     - uses: actions/checkout@v3
