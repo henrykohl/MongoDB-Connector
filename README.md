@@ -116,7 +116,33 @@ python main.py
   > 在 GitHub Actions 頁面可以看到，The package is going to be deployed in backend
 
 ---
+# Lecture 4 Note -- [GIT & DOCKER For MLOps Projec](https://www.youtube.com/watch?v=KWoyJwqt22I)
 
+## Code Recap (27:00)
+
+* `init_setup.sh`: If you are going to create an environment for that some like repeated command is required like `conda create`、`conda activate`, all which you are running on your bash terminal (on your windows terminal). You can write down each and every command inside your shell script (.sh). And, you can run it in a single shot by using the bash commands.
+
+* (30:13) `/src`: having our main package. It is representing the source code.
+
+* `/experiments`: just for the experiment purpose. Whatever experiment I was doing. Here each and every file I was creating here itself.
+
+so inside this experiment folder, I had created the ipynb file.
+
+* (30:45) `/.github/workflows`: inside the workflows folder, you can find out the complete configuration. The configuration is related to the Continuous Integration and The configuration is related to the PYPI deployment. When we are going to deploy our code on a PYPI repository, for that we have written a configuratin inside this particular yaml file (`python-publish.yaml`). For the continuous integration, if I want to test our code on GitHub Action server, so for that we have written `ci.yaml` file as soon as we want to integrate our code or as soon as we are going to push our code to the GitHub. So the Github Action server will up and then like each and every script is going to be run.
+
+* (32:51) `experiments/experiments.ipynb` 
+  > MongoDB --> client --> Database --> Collection <--> Document:{key, value}. Inside the collection my data will be available in the form of document. document is nothing key and value pair.
+
+(37:00) MongoDB
+
+
+
+* 參1: [MongoDB Basics | Tutorial 4: Create Atlas Cluster](https://www.youtube.com/watch?v=esKNjzDZItQ)
+
+* 參2: [Simple documentation for setup.cfg](https://discuss.python.org/t/simple-documentation-for-setup-cfg/11465)
+
+
+---
 # requirements_dev.txt we use for the testing
 It makes it easier to install and manage dependencies for development and testing, separate from the dependencies required for production.
 
