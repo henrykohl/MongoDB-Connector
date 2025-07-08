@@ -136,10 +136,30 @@ so inside this experiment folder, I had created the ipynb file.
 (37:00) MongoDB
 
 
+* (1:36:20) 將 `setup.py` 的 PKG_NAME 改為 "databaseautomation"， 將 `/src` 下的資料夾 改名為 *database_automation*. PS. __version__ = 0.0.2 改成 0.0.3 ??
+  > ```bash
+  > git add .
+  > git commit -m "code and version updated"
+  > git push -u origin main
+  > ```
+
+* (1:44:14) 將 `setup.py` 的 __version__ = 0.0.4
+  > ``` bash
+  > git add .
+  > git commit -m "version updated"
+  > git push origin main
+  > ```
+
+* 在 [github releases 頁面](https://github.com/henrykohl/MongoDB-Connector/releases) ，點選 **Draft a new release**，在 **Choose a Tag** 中選取 v0.0.4，在 release title 輸入 v0.0.4，在 Describe release 中輸入 this is my mongo automation package. 最後按下 **Publish release**.
+
+* (1:48:00) Google Colab，自行將 Lecture 的演示，記錄到 `mongodemo.ipynb`
 
 * 參1: [MongoDB Basics | Tutorial 4: Create Atlas Cluster](https://www.youtube.com/watch?v=esKNjzDZItQ)
 
 * 參2: [Simple documentation for setup.cfg](https://discuss.python.org/t/simple-documentation-for-setup-cfg/11465)
+
+
+* (2:10:54) Explanation of YAML file
 
 
 ---

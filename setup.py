@@ -20,7 +20,7 @@ def get_requiremet(file_path:str)->List[str]:
 
 __version__ = "0.0.4"
 REPO_NAME = "MongoDB-Connector" # 修改過
-PKG_NAME= "MongoDB-Connect" # only visible on PYPI repository
+PKG_NAME= "mongodbconnect" # only visible on PYPI repository
 AUTHOR_USER_NAME = "henrykohl" # 修改過; GitHub 使用者名稱
 AUTHOR_EMAIL = "u860218@gmail.com" # 修改過
 
