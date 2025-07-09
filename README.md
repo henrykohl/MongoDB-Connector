@@ -131,10 +131,13 @@ so inside this experiment folder, I had created the ipynb file.
 * (30:45) `/.github/workflows`: inside the workflows folder, you can find out the complete configuration. The configuration is related to the Continuous Integration and The configuration is related to the PYPI deployment. When we are going to deploy our code on a PYPI repository, for that we have written a configuratin inside this particular yaml file (`python-publish.yaml`). For the continuous integration, if I want to test our code on GitHub Action server, so for that we have written `ci.yaml` file as soon as we want to integrate our code or as soon as we are going to push our code to the GitHub. So the Github Action server will up and then like each and every script is going to be run.
 
 * (32:51) `experiments/experiments.ipynb` 
-  > MongoDB --> client --> Database --> Collection <--> Document:{key, value}. Inside the collection my data will be available in the form of document. document is nothing key and value pair.
+  > (44:10) MongoDB --> client --> Database --> Collection <--> Document:{key, value}. Inside the collection my data will be available in the form of document. document is nothing key and value pair.
 
-(37:00) MongoDB
+* (37:00) MongoDB
 
+* (42:10-1:35:25) 完成 `experiments/experiments.ipynb` 
+
+* (1:35:25) Review `src/mongodb_connect/mongo_crud.py`
 
 * (1:36:20) 將 `setup.py` 的 PKG_NAME 改為 "databaseautomation"， 將 `/src` 下的資料夾 改名為 *database_automation*. PS. __version__ = 0.0.2 改成 0.0.3 ??
   > ```bash
@@ -154,13 +157,14 @@ so inside this experiment folder, I had created the ipynb file.
 
 * (1:48:00) Google Colab，自行將 Lecture 的演示，記錄到 `mongodemo.ipynb`
 
+* (2:10:54) Explanation of YAML file
+
+---
+# 參考
+
 * 參1: [MongoDB Basics | Tutorial 4: Create Atlas Cluster](https://www.youtube.com/watch?v=esKNjzDZItQ)
 
 * 參2: [Simple documentation for setup.cfg](https://discuss.python.org/t/simple-documentation-for-setup-cfg/11465)
-
-
-* (2:10:54) Explanation of YAML file
-
 
 ---
 # requirements_dev.txt we use for the testing
