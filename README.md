@@ -138,6 +138,9 @@ so inside this experiment folder, I had created the ipynb file.
 * (42:10-1:35:25) 完成 `experiments/experiments.ipynb` 
 
 * (1:35:25) Review `src/mongodb_connect/mongo_crud.py`
+  > 注意，`mongo_crud.py` 要使用 [MongoDB-Connector/src/mongodb_connect
+/mongo_crud.py](https://github.com/sunnysavita10/MongoDB-Connector/blob/main/src/mongodb_connect/mongo_crud.py)，而不是使用[MongoDB-Connector-PYPI-Package/src/database_automation
+/mongo_crud.py](https://github.com/sunnysavita10/MongoDB-Connector-PYPI-Package/blob/main/src/database_automation/mongo_crud.py)
 
 * (1:36:20) 將 `setup.py` 的 PKG_NAME 改為 "databaseautomation"， 將 `/src` 下的資料夾 改名為 *database_automation*. PS. __version__ = 0.0.2 改成 0.0.3 ??
   > ```bash
