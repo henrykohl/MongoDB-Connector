@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 from typing import List
-    
+
 HYPEN_E_DOT='-e .'
 
 def get_requiremet(file_path:str)->List[str]:
@@ -38,7 +38,7 @@ setup(
     },
     package_dir={"": "src"}, # 表示 src 是 root 目錄
     packages=find_packages(where="src"),
-    install_requires=get_equirement("./requirements_dev.txt"),
+    install_requires=get_requirement("./requirements_dev.txt"),
     
     
 )
