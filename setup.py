@@ -1,10 +1,10 @@
 from setuptools import setup, find_packages
 from typing import List
-
+    
 HYPEN_E_DOT='-e .'
 
 def get_requiremet(file_path:str)->List[str]:
-    requirements = []Add commentMore actions
+    requirements = []
     with open(file_path) as f:
         requirements=f.readlines()
         requirements=[req.replace("\n","")for req in requirements]
