@@ -149,6 +149,10 @@ so inside this experiment folder, I had created the ipynb file.
   > git push -u origin main
   > ```
 
+* In Github Action webpage，the code is running on top of github action. 
+
+* 在 Github repository 的 release 頁面，可以看到 v0.0.3 的版本
+
 * (1:44:14) 將 `setup.py` 的 __version__ = 0.0.4
   > ``` bash
   > git add .
