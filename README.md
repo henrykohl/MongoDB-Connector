@@ -19,6 +19,135 @@ python main.py
 * 從 sunnysavita10/MongoDB-Connector-PYPI-Package 所在 github 執行 fork，後用 vscode.dev 開啟自己的 repository，然後將一些檔案刪除到如（23:00）這般，再 push 到自己的 repository，完成類似用 ineuron lab 所建立的 MongoDB 範本，接著用 Gitpod.io 開啟自己的 Github repository，接著就可以按照 Lecture 的步驟進行操作!
 
 ---
+# Lecture 1 Note -- [MLOps Foundations and Fundamentals](https://www.youtube.com/watch?v=jpU8F0M5axo)
+
+* (21:45) The prerequisite: The basics of the machine learning
+  > 1. Basics of ML/DL
+  > 
+  > 2. Basics of the Python
+
+## (29:30) MLOps -- DevOps: SDLC(software development live cycle)
+
+* 5 phases in Software Development live cycle (五階段)
+  > 1. Planning & Requirement
+  > 
+  > 2. Design
+  > 
+  > 3. Building -- Dev. w.r.t any sort of a language like python, Java, ... 
+  > 
+  > 4. Testing
+  > 
+  > 5. Deploy
+
+* Types of software development models
+  > 1. Waterfall Model
+  > 
+  > 2. Agile methodology (state-of-art) – deliver a APP in a shortest time with a minimalistic feature
+
+## (45:20) Corona scenario
+
+* 開發 Aarogya Setu 應用程式 -- (顧客 Government)，(賣方 Organization)有以下兩者：
+  > 交給 XYZ 公司 ：需 8~10 months，遵循 SDLC 五階段 \
+  > 交給 abc 公司 ：需 2~3 weeks，每一個iteration 只實現簡單一部份功能！
+
+* launch the APP in iterations. At the first place, create a simple UI. Take the information from the user. Based on that, show the basic guidelines/ only the basic detail. In the next iteration, keep it to the advanced one. Add a few more information(e.g., regarding traveling and all). In the third iteration, again add something over there. So they are working in iteration. The first iteration follows all the step regrading 五階段 in waterfall + production. Deploy and then, the APP is visible to everyone. In the second iteration, again, they came up, again, they have planned with a new feature and they have implemented that and then basically they have tested and then deployed. So, they are working on iteration-wise. They are not going to build up the entire APP in a single shot and then they are going to test it and then they are going to be deployed.
+
+* So the waterfall, it’s having many disadvantages. It's not for the complex project and it's not a Time effective. On the other hand, agile, it is working in iterations. Therefore, nowadays in a market actually we are using agile, not a waterfall because agile is the state-of-art and with that basically we are able to deliver an APP in a shortest time and with a minimalistic feature also.
+
+## (53:00) DevOps
+
+* Dev+Ops
+  > * Development
+  > |Dev|: Java/Python/PHP, Git/GitHub \n
+  > --> |testing| \n
+  > --> |QA| Jenkins/Github Action/Circle ci/Travis ci
+  >
+  > * Operations
+  > --> |Delivery|: Docker/Kubernetes \n
+  > --> |Deployment| \n
+  > --> |maintenance/monitoring|
+
+* Manual (every step in Waterfall) VS. Automated (the entire process)
+
+* two methodologies (whatever application we are building nowadays)
+  > Agile
+  >
+  > DevOps
+
+## (1:06:23) MLOps
+* Development:
+|Buidling| 
+--> |Testing|: manual/automated/UAT(user acceptance testing)/unit/integration 
+-----> |QA(quality assurance)|
+
+* Operation:
+|Delivery|
+-->|Deployment|
+---->|monitor/maintenance|
+
+* MLOps: ML + Ops
+
+  > ML: 
+  > 1. Data
+  > 2. Validation
+  > 3. EDA--Exploratory Data Analysis
+  > 4. Feature Engineering
+  > 5. Model building/ Model Evaluation
+
+## (1:13:44) ML & DL 
+
+* Machine Learning -- Regression, Classification
+* Deep Learning -- Vision, NLP => App
+  > <pre>採用Agile -- |MLOPS| : building a ML APP & responsible for maintaining the entire pipeline. \
+  >                 ^ 
+  >                 ^ 
+  > 採用Agile -- |DEVOPS| 
+  >                 ^ 
+  >                 ^ 
+  >              |SDLC|</pre>
+
+## (1:21:55) Flow regarding one application (MLOps engineers)
+* ML-APP
+  > <pre>|Build|: Python, Git..(tools) ~ [local] 
+  > -->|test|: unit, integration ~ [central repo/github]
+  > -->|Deliver|: Docker image ~ [Docker Hub/Amazon]
+  > -->|Deploy|: container ~  [AWS]
+  > -->|Monitor/Maintain| </pre>
+
+* (1:30:40) More terms in market
+  > <pre>Amazon - DevOps、MLOps
+  > GCP - DevOps、MLOps
+  > Azure - DevOps、MLOps</pre>
+
+* open source tools (for MLOps engineers):
+  > Git、CircleCI、Terraform、Ansible、Docker Hub
+
+## (1:33:55) CI/CD/CD + CT (Continuous Training): Air flow
+
+* CI
+  > |Develop| (local) 
+
+  > --> |testing|
+
+  > --> |QA|
+
+* CD
+  > --> |Deliver|
+
+* CD
+  > --> |Deploy|
+
+  > --> |Monitor/Maintain|
+
+* (1:38:07) MLOPS engineers 的工作
+  > CI/CD/CD/CT
+
+* (1:43:30) MLOps Architecture [MLOps: Continuous delivery and automation pipelines in machine learning](https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning)
+
+* (1:52:00) Create a GitHub Repository 
+
+
+
 # Lecture 3 Note -- [How to Create Python Package for MLOps Project](https://www.youtube.com/watch?v=vKi-l__1xg0)
 
 * GitHub Repository Resource 1 -- [MongoDB-Connector-PYPI-Package](https://github.com/sunnysavita10/MongoDB-Connector-PYPI-Package)
