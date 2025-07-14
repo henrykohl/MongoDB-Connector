@@ -38,7 +38,7 @@ setup(
     },
     package_dir={"": "src"}, # 表示 src 是 root 目錄
     packages=find_packages(where="src"),
-    install_requires=get_requirement("./requirements_dev.txt"),
+    install_requires=get_requirement("./kllkklkllrequirements_dev.txt"),
     
     
 )
