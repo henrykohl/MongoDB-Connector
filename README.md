@@ -146,7 +146,118 @@ python main.py
 
 * (1:52:00) Create a GitHub Repository 
 
+# Lecture 2 Note -- [MLOps End-to-End Project Setup with GitHub](https://www.youtube.com/watch?v=6qnx3okPvkc)
+* MLOPS(ML- + [OPS]):
+  > <pre>1-. Data Ingestion/collection 
+  >     > Data Pipeline: Source to Destination - Data engineering
+  > 2-. EDA
+  > 3-. FE--feature engineering
+  > 4-. Model Creation
+  > 5-. Model Evaluation
+  > [6]. Deploy
+  > [7]. Monitor
+  > [8]. Retrain </pre>
 
+* (37:55)Devops VS. MLOps
+
+## (48:00) 建立 `template.py`
+
+```python
+import os
+from pathlib import Path
+
+package_name = "mongodb_connect"
+
+list_of_files = [
+   ".github/workflows/.gitkeep",
+   "src/components/__init__.py",
+   "src/components/data_ingestion.py",
+"src/components/data_transformation.py",
+"src/components/data_trainer.py",
+"src/components/data_evaluation.py",
+"src/pipeline/__init__.py",
+"src/pipeline/training_pipeline.py",
+"src/pipeline/prediction_pipeline.py",
+"src/utils/__init__.py",
+"src/utils/utils.py",
+"src/logger/logging.py",
+"src/exceptions/exception.py",
+"tests/utils/__init__.py",
+"tests/integration/__init__.py",
+"init_setup.sh",
+"requirements.txt",
+"requirements_dev.txt",
+"setup.py",
+"setup.cfg",
+"pyproject.toml",
+"tox.ini",
+"experiment/experiments.ipynb"
+]
+
+for filepath in list_of_files:
+    filepath = Path(filepath)
+    filedir, filename = os.path.split(filepath)
+    if filedir != "":
+        os.makedirs(filedir, exist_ok=True)
+        logging.info(f"Creating directory: {filedir} for file: {filename}")
+
+    if (not os.path.exists(filepath)) or (os.path.getsize(filepath) == 0):
+        with open(filepath, "w") as f:
+            pass # create an empty file
+```
+
+* 執行 `python template.py`
+
+* 執行 git push
+  > ```bash
+  > git add .
+  > git commit -m "folder structure updated" # 出錯
+  > 
+  > git config --global user.email "u860218@gmail.com"
+  > git config --global user.name "henrykohl"
+  > git commit -m "folder structure updated" # 再次執行
+  > git push -f origin main
+  > ```
+## Machine Learning:
+
+* Supervised VS. Unsupervised
+
+* Two stages
+  > 1. (tp): training -- pipeline
+  > 
+  > 2. (vp): validation/testing/inferencing -- pipeline
+
+* (tp):
+  > |Data| -> |Data Validation| -> |FE| -> |Model training| -> |Model evaluation|
+
+* (vp):
+  > <pre>|Data| -> |Data Validation| -> |FE| -> |Model evaluation|
+  > Two types of testing
+  > Single value prediction
+  > Bulkd prediciton<pre>
+
+* 執行 git push
+  > ```bash
+  > git add .
+  > git commit -m "structure_updated"
+  > git push -f origin main
+  > ```
+
+## (1:48:00) Discuss something before the main project
+<pre>(1) Introduciton
+(2) Structure
+(3) Python Package -> PyPi</pre>
+
+* CI
+  > github action
+  >
+  > github page
+
+* MongoDB -- Database
+
+* `setup.py`、`setup.cgf`、`pyproject.toml`、`tox.ini` are required
+
+* (1:55:15) Demo GitHub Template repositories 
 
 # Lecture 3 Note -- [How to Create Python Package for MLOps Project](https://www.youtube.com/watch?v=vKi-l__1xg0)
 
@@ -245,6 +356,7 @@ python main.py
   > 在 GitHub Actions 頁面可以看到，The package is going to be deployed in backend
 
 ---
+
 # Lecture 4 Note -- [GIT & DOCKER For MLOps Projec](https://www.youtube.com/watch?v=KWoyJwqt22I)
 
 ## Code Recap (27:00)
@@ -296,6 +408,7 @@ so inside this experiment folder, I had created the ipynb file.
 * (2:10:54) Explanation of YAML file
 
 ---
+
 # 參考
 
 * 參1: [MongoDB Basics | Tutorial 4: Create Atlas Cluster](https://www.youtube.com/watch?v=esKNjzDZItQ)
