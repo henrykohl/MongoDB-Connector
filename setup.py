@@ -20,7 +20,7 @@ def get_requirement(file_path:str)->List[str]:
 
 __version__ = "0.0.3" # 修改過 0.0.3 到 0.0.4 變成 0.0.4.0
 REPO_NAME = "MongoDB-Connector" # 修改過
-PKG_NAME= "mongodbautoconnect" # only visible on PYPI repository; 修改過
+PKG_NAME= "mongodbconnectpkgauto" # only visible on PYPI repository; 修改過
 AUTHOR_USER_NAME = "henrykohl" # 修改過; GitHub 使用者名稱
 AUTHOR_EMAIL = "u860218@gmail.com" # 修改過
 
