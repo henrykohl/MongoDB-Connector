@@ -25,7 +25,7 @@ AUTHOR_USER_NAME = "henrykohl" # 修改過; GitHub 使用者名稱
 AUTHOR_EMAIL = "u860218@gmail.com" # 修改過
 
 setup(
-    name=PKG_NAME,
+    name=PKG_NAME, # the name of the package; the name which we are seeing over the PYPI repository
     version=__version__,
     author=AUTHOR_USER_NAME,
     author_email=AUTHOR_EMAIL,
@@ -37,8 +37,8 @@ setup(
         "Bug Tracker": f"https://github.com/{AUTHOR_USER_NAME}/{REPO_NAME}/issues",
     },
     package_dir={"": "src"}, # 表示 src 是 root 目錄
-    packages=find_packages(where="src"),
-    install_requires=get_requirement("requirements_dev.txt"),
+    packages=find_packages(where="src"), # the package actually it it avaiable inside the SRC folder.
+    install_requires=get_requirement("requirements_dev.txt"), 
     # install_requires=["pymongo","ensure","pytest"]
     
     

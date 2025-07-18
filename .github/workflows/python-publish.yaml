@@ -10,8 +10,9 @@ name: Upload Python Package
 
 on:
   release:
-    types: [published]
-
+    types: [published] 
+    # push on MAIN whenever we're going to push on MAIN, automatically our GitHub Action server will be active.
+    # we can test our code. It's for devoplers.
 permissions:
   contents: read
 
@@ -47,4 +48,4 @@ jobs: # the job like we want to deploy this.
       uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
       with:
         user: __token__
-        password: ${{ secrets.PYPI_API_TOKEN }}
+        password: ${{ secrets.PYPI_API_TOKEN }} # token from the PYPI repository

@@ -310,30 +310,28 @@ for filepath in list_of_files:
 
 * code explanation
   > (1:10:45) `requirements_dev.txt`: requirement for development environment. dsnpython -- for MongoDB. ensure -- use for ensuring something. pytest -- test for use cases. tox (用在tox.ini) --  using the tox, we can create a testing environment. black and flask8 -- linting tools. \n
-  > (1:14:55) `setup.py`: \
-  > (1:23:45) `setup.cfg`: 檔案中 每一個 tag/title - 也就是 [] - 後面對應的是 Key & value. It's just an extension of `setup.py`, representing a configuration of `setup.py`. \
+  > (1:14:55) `setup.py`: 在 Lecture 3 中加入 `install_requires=get_requirement("requirements_dev.txt")`，自行實現時，在 GitHub Action 中執行 Test with tox 時，找不到 `"requirements_dev.txt"`，不知道為何！後來才google到解決方式~建立 `MANIFEST.in` 加入 `include requirements_dev.txt`
+  > (1:23:45) `setup.cfg`: 檔案中 每一個 tag/title - 也就是 [] - 後面是 information ，有對應的 Key & value. It's just an extension of `setup.py`, representing a configuration of `setup.py`. \
   > (1:30:40) `tox.ini` (testing for development environment) are using for testing our code in local environment in a development environment if we want our code in a local environment or while we are going to integrate it. So, while performing this CI, I'm going to perform it by using the GitHub. GitHub is also having one service which provides us a server -- the service name is called GitHub Action. Once it creats the python environment, the first place it will create a python environment. Then, it will install the dependency inside that environment. In [testenv], `deps=...` will install the requirements_dev.txt. Finally, it's going to perform the following particular commands (`commands=...`). `flake8 src ...` means that going into the `src` folder, it is using the `flake8`. `mypy src/` means that checking `src/` we are using `mypy`. `mypy` is a linting tool, which is able to check whether the code is correct. Using `flake8` for all our code is following all the protocol or not. Again, we are going to do testing by using the tox.ini file. `pytest -v ...` will do unit testing and integration testing.
-  > Provide you the local environment for testing your application (the number of environments can be more than one). We can create the environments for different versions. PS. `-v` is verbose -- whatever execution is happening in backend, you are going to see all the execution in your screen. PS. `--count` is the command line argument. PS. (E9, F63, ...) **PEP** they define the python protocol. PS. `--select ... --statistics` can be removed. PS. `mypy` 是 linting tool: check the code whether it's correct or not. \
-  > (1:42:45)  `pyproject.toml`: the configuration is related to/ visible to our packages. 
+  > Provide you the local environment for testing your application (the number of environments can be more than one). We can create the environments for different versions. PS. `-v` is verbose -- whatever execution is happening in backend, you are going to see all the execution in your screen. PS. `--count` is the command line argument. PS. E9, F63, ..., **PEP**, they define the python protocol. PS. `--select ... --statistics` can be removed. PS. `mypy` 是 linting tool: check the code whether it's correct or not. \
+  > (1:42:45)  `pyproject.toml`: the configuration is related to/ visible to our packages. [] 也就是 tag. Inside the tage, you will find out the information. Either you can write it down inside the `setup.cfg` or in the `pyproject.toml`; these two files.
 
 * (1:44:35) 完成 `.github/workflows/ci.yaml`
 
 * (1:45:00) 建立 `.github/workflows/python-publish.yaml`
   > 主要來自於 [Publish Python Package](https://github.com/henrykohl/MongoDB-Connector/actions/new)，點選 **Configure**，就可以看到  Github 編寫好的 yaml/yml 檔案。\
-  > `flake8 .` 中那一個點是指 current directory. We are checking into the current directory, whatever thing is wrong like we have not written according to the protocol. It will generate a like warning or information of the message regarding to those thing/those issues. `flake8` 後也可以指定一個 specific folder over here.
-  It means that you can look into the entire workspace. \
+  > `flake8 .` 中那一個點是指 current directory. We are checking into the current directory, whatever thing is wrong like we have not written according to the protocol. It will generate a like warning or information of the message regarding to those thing/those issues. `flake8` 後也可以指定一個 specific folder over here. It means that you can look into the entire workspace. \
   > `pytest`: we are using for testing like we have test cases for that. \ 
   > (2:03:21) this particular configuration for deploying the code on PYPI.
 
 * (1:50:05) review [PyPI · The Python Package Index](https://pypi.org/)
-  > 註冊帳號，登入pypi，在 Account setting 中 API tokens，按下 Add API token，在 Create API token 頁面中，設定 Token name (e.g., deconnection) 與 scope (e.g., entire account)，按下 Create token，獲得 TOKEN
-  >
+  > 註冊帳號，登入pypi，在 Account setting 中 API tokens，按下 Add API token，在 Create API token 頁面中，設定 Token name (e.g., deconnection) 與 scope (e.g., entire account)，按下 Create token，獲得 TOKEN \
   > 在GitHub 的 setting 中 Secrets and variables，設置 New secret，Name* 為 `PYPI_API_TOKEN`，Secret* 為剛獲取的 TOKEN
 
 * (2:00:15) 解析 `.github/workflows/ci.yaml`
   > This file is not related to PYPI. This is just for the continuous integration. We are going to integrate our code over the GitHub. And GitHub is providing a server. The server name is nothing GitHub Action.GitHub action is a service. Under that we have different servers (e.g., Windows, Linux, ...). In ci.yaml, the particular code/configuration we have written tells us if we are going to integrate our code with GitHub, so immediately we can run all the test cases. We can check our code is fine or not. This ci file is just for testing our code while integrating. This is the work for development.  
 
-* (2:05:20) `src/mongodb_connect/mongo_crud.py`（more details in Lecture 4），`tests/integration/__init__.py`，`tests/__init__.py`  
+* (2:05:20) `src/mongodb_connect/mongo_crud.py`（more details in Lecture 4），`tests/integration/__init__.py`，`tests/__init__.py`，Lecture 3 示範的內容，實際測試時，會發生來自 decorator 的錯誤，但 Lecture 4 示範的內容又不同，卻是可以正確運行的！需要注意。  
   > Everything we have unified in a single method
 
 * (2:08:58) 刪除 `main.py`
@@ -345,6 +343,8 @@ for filepath in list_of_files:
   > git push -u origin main
   > ```
 
+* Github Actions 出現錯誤 `from tox.config.cli.parser not found` (Lecture 3 未解決)  
+
 * (2:11:25) GitHub Release
   > 按下 **Create a new release**: \n
   > * Choose a tag: `v0.0.1` \n
@@ -354,6 +354,8 @@ for filepath in list_of_files:
   >
 
   > 在 GitHub Actions 頁面可以看到，The package is going to be deployed in backend
+
+* (2:14:14) Github Actions 中 deploy 時，Test with pytest 也出現錯誤 (Lecture 3 未解決) 
 
 ---
 

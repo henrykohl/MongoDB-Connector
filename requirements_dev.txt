@@ -4,7 +4,7 @@ dnspython
 pandas
 numpy
 ensure
-pytest
+# pytest # 後面重複了，可以刪除
 
 # -e .
 
