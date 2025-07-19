@@ -372,31 +372,11 @@ for filepath in list_of_files:
 * 每次要 Publish release 時，`setup.py` 中的 version 是需要唯一的，PYPI 不接受相同的 version。此外，在 Publish release 時，Tag (可以與 version是不同的)，如果使用用過的，似乎 Actions 所使用的 code ，就會是之前的 Tag 所 commit 的內容 -- 還不知道為什麼，所以要 Publish release 時，要謹慎一點，因為使用過的 Tag ，等於無法再給更新過的 code 使用。
 
 
-* `setup.cfg`註釋最好不要用中文，否則 用Windows 系統時，在 Actions 的 install dependencies 之中，會出現 `WARNING: Ignore distutils configs in setup.cfg due to encoding errors.` 警告
+* `setup.cfg`註釋最好不要用中文，否則（用Windows 系統時）在 Actions 的 install dependencies 之中，會出現 `WARNING: Ignore distutils configs in setup.cfg due to encoding errors.` 警告
 
-* `requirements_dev.txt`
+* `requirements_dev.txt`中可以有註釋（使用 #），但不能用中文，否則（用Windows 系統時）在 Actions 中 install dependencies(或 Test wit tox)時，會出現 `UnicodeDecodeError: 'charmap' codec can't decode byte 0x9d in position 84: character maps to <undefined>` 的錯誤
 
-```text
-pymongo
-pymongo[srv]
-dnspython
-pandas
-numpy
-ensure
-# pytest # 後面重複了，可以刪除
 
-# -e .
-
-# dev requirements -
-
-pytest==7.1.3
-tox==4.23.2 # 3.25.1
-black==22.8.0
-flake8==5.0.4
-mypy==0.971
-
--e .
-```
 
 ---
 

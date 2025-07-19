@@ -6,7 +6,7 @@ numpy
 ensure
 # pytest 
 
-# -e .  # 後面重複了，可以刪除
+# -e .  
 
 # dev requirements -
 
