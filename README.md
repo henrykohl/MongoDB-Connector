@@ -308,6 +308,39 @@ for filepath in list_of_files:
   > git push -u origin main
   > ```
 
+```python
+[metadata]
+license = MIT # a license of the repository
+license_file = LICENSE
+classifiers = 
+    #  Programming Language :: Python :: 3.7 # removed
+    Programming Language :: Python :: 3.8
+    Programming Language :: Python :: 3.9
+    Operating System :: OS Independent
+
+[options]
+install_requires = 
+    ensure==1.0.2
+    py-youtube==1.1.7
+python_requires = >=3.7
+
+[options.extras_require]
+testing =
+    pytest>=7.1.3
+    mypy>=0.971
+    flake8>=5.0.4
+    tox>=3.25.1
+    black>=22.8.0
+
+[options.package_data] # reference https://discuss.python.org/t/simple-documentation-for-setup-cfg/11465/11
+MongoDB-Connect=py.typed
+
+[flake8]
+max-line-length = 160
+exclude = __init__.py
+```
+
+
 * code explanation
   > (1:10:45) `requirements_dev.txt`: requirement for development environment. dsnpython -- for MongoDB. ensure -- use for ensuring something. pytest -- test for use cases. tox (用在tox.ini) --  using the tox, we can create a testing environment. black and flask8 -- linting tools. \n
   > (1:14:55) `setup.py`: 在 Lecture 3 中加入 `install_requires=get_requirement("requirements_dev.txt")`，自行實現時，在 GitHub Action 中執行 Test with tox 時，找不到 `"requirements_dev.txt"`，不知道為何！後來才google到解決方式~建立 `MANIFEST.in` 加入 `include requirements_dev.txt`
