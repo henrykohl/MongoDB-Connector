@@ -308,33 +308,10 @@ for filepath in list_of_files:
   > git push -u origin main
   > ```
 
-
-```text
-pymongo
-pymongo[srv]
-dnspython
-pandas
-numpy
-ensure
-# pytest # 後面重複了，可以刪除
-
-# -e .
-
-# dev requirements -
-
-pytest==7.1.3
-tox==4.23.2 # 3.25.1
-black==22.8.0
-flake8==5.0.4
-mypy==0.971
-
--e .
-```
-
 * code explanation
   > (1:10:45) `requirements_dev.txt`: requirement for development environment. dsnpython -- for MongoDB. ensure -- use for ensuring something. pytest -- test for use cases. tox (用在tox.ini) --  using the tox, we can create a testing environment. black and flask8 -- linting tools. \n
   > (1:14:55) `setup.py`: 在 Lecture 3 中加入 `install_requires=get_requirement("requirements_dev.txt")`，自行實現時，在 GitHub Action 中執行 Test with tox 時，找不到 `"requirements_dev.txt"`，不知道為何！後來才google到解決方式~建立 `MANIFEST.in` 加入 `include requirements_dev.txt`
-  > (1:23:45) `setup.cfg`: 檔案中 每一個 tag/title - 也就是 [] - 後面是 information ，有對應的 Key & value. It's just an extension of `setup.py`, representing a configuration of `setup.py`. (註釋最好不要用中文，否則 install dependencies (若用Windows 系統) 時會出現 `WARNING: Ignore distutils configs in setup.cfg due to encoding errors.` 警告) \
+  > (1:23:45) `setup.cfg`: 檔案中 每一個 tag/title - 也就是 [] - 後面是 information ，有對應的 Key & value. It's just an extension of `setup.py`, representing a configuration of `setup.py`.  \
   > (1:30:40) `tox.ini` (testing for development environment) are using for testing our code in local environment in a development environment if we want our code in a local environment or while we are going to integrate it. So, while performing this CI, I'm going to perform it by using the GitHub. GitHub is also having one service which provides us a server -- the service name is called GitHub Action. Once it creats the python environment, the first place it will create a python environment. Then, it will install the dependency inside that environment. In [testenv], `deps=...` will install the requirements_dev.txt. Finally, it's going to perform the following particular commands (`commands=...`). `flake8 src ...` means that going into the `src` folder, it is using the `flake8`. `mypy src/` means that checking `src/` we are using `mypy`. `mypy` is a linting tool, which is able to check whether the code is correct. Using `flake8` for all our code is following all the protocol or not. Again, we are going to do testing by using the tox.ini file. `pytest -v ...` will do unit testing and integration testing.
   > Provide you the local environment for testing your application (the number of environments can be more than one). We can create the environments for different versions. PS. `-v` is verbose -- whatever execution is happening in backend, you are going to see all the execution in your screen. PS. `--count` is the command line argument. PS. E9, F63, ..., **PEP**, they define the python protocol. PS. `--select ... --statistics` can be removed. PS. `mypy` 是 linting tool: check the code whether it's correct or not. \
   > (1:42:45)  `pyproject.toml`: the configuration is related to/ visible to our packages. [] 也就是 tag. Inside the tage, you will find out the information. Either you can write it down inside the `setup.cfg` or in the `pyproject.toml`; these two files.
@@ -393,6 +370,33 @@ mypy==0.971
 * `setup.py` 中，自行加入  `long_description_content_type='text/markdown',`，否則在 publish 階段，Github Actions 進行 deploy 時（Publish package），會出現 WARNING 'long_description_content_type' missing. defaulting to text/x-rst 的警告
 
 * 每次要 Publish release 時，`setup.py` 中的 version 是需要唯一的，PYPI 不接受相同的 version。此外，在 Publish release 時，Tag (可以與 version是不同的)，如果使用用過的，似乎 Actions 所使用的 code ，就會是之前的 Tag 所 commit 的內容 -- 還不知道為什麼，所以要 Publish release 時，要謹慎一點，因為使用過的 Tag ，等於無法再給更新過的 code 使用。
+
+
+* `setup.cfg`註釋最好不要用中文，否則 用Windows 系統時，在 Actions 的 install dependencies 之中，會出現 `WARNING: Ignore distutils configs in setup.cfg due to encoding errors.` 警告
+
+* `requirements_dev.txt`
+
+```text
+pymongo
+pymongo[srv]
+dnspython
+pandas
+numpy
+ensure
+# pytest # 後面重複了，可以刪除
+
+# -e .
+
+# dev requirements -
+
+pytest==7.1.3
+tox==4.23.2 # 3.25.1
+black==22.8.0
+flake8==5.0.4
+mypy==0.971
+
+-e .
+```
 
 ---
 
