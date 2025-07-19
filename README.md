@@ -340,6 +340,27 @@ max-line-length = 160
 exclude = __init__.py
 ```
 
+```text
+pymongo
+pymongo[srv]
+dnspython
+pandas
+numpy
+ensure
+# pytest # 後面重複了，可以刪除
+
+# -e .
+
+# dev requirements -
+
+pytest==7.1.3
+tox==4.23.2 # 3.25.1
+black==22.8.0
+flake8==5.0.4
+mypy==0.971
+
+-e .
+```
 
 * code explanation
   > (1:10:45) `requirements_dev.txt`: requirement for development environment. dsnpython -- for MongoDB. ensure -- use for ensuring something. pytest -- test for use cases. tox (用在tox.ini) --  using the tox, we can create a testing environment. black and flask8 -- linting tools. \n

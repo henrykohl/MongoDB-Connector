@@ -39,8 +39,8 @@ setup(
     },
     package_dir={"": "src"}, # 表示 src 是 root 目錄
     packages=find_packages(where="src"), # the package actually it it avaiable inside the SRC folder.
-    # install_requires=get_requirement("requirements_dev.txt"), 
-    install_requires=["pymongo","ensure","pytest"]
+    install_requires=get_requirement("requirements_dev.txt"), 
+    # install_requires=["pymongo","ensure","pytest"]
     
     
 )

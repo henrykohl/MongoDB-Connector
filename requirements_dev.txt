@@ -4,11 +4,6 @@ dnspython
 pandas
 numpy
 ensure
-# pytest # 後面重複了，可以刪除
-
-# -e .
-
-# dev requirements -
 
 pytest==7.1.3
 tox==4.23.2 # 3.25.1
