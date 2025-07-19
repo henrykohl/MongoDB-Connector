@@ -357,6 +357,20 @@ for filepath in list_of_files:
 
 * (2:14:14) Github Actions 中 deploy 時，Test with pytest 也出現錯誤 (Lecture 3 未解決) 
 
+* (2:16:00-end) No more significant point.
+
+## Trouble issue 自行補充
+
+* `setup.py` 中如果使用 
+  > ```python
+  > install_requires=get_requirement("requirements_dev.txt"),
+  > ``` 
+  需要建立 `MANIFEST.in`，其內容加入 `include requirements_dev.txt`，否則在 GitHub Actions 中執行 Test with tox 時，會出現 FileNotFoundError: [Errno 2] No such file or directory: 'requirements_dev.txt' 的錯誤。 
+
+* `setup.py` 中，自行加入  `long_description_content_type='text/markdown',`，否則在 publish 階段，Github Actions 進行 deploy 時（Publish package），會出現 WARNING 'long_description_content_type' missing. defaulting to text/x-rst 的警告
+
+* 每次要 Publish release 時，`setup.py` 中的 version 是需要唯一的，PYPI 不接受相同的 version。此外，在 Publish release 時，Tag (可以與 version是不同的)，如果使用用過的，似乎 Actions 所使用的 code ，就會是之前的 Tag 所 commit 的內容 -- 還不知道為什麼，所以要 Publish release 時，要謹慎一點，因為使用過的 Tag ，等於無法再給更新過的 code 使用。
+
 ---
 
 # Lecture 4 Note -- [GIT & DOCKER For MLOps Projec](https://www.youtube.com/watch?v=KWoyJwqt22I)

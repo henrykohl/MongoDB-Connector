@@ -18,7 +18,7 @@ def get_requirement(file_path:str)->List[str]:
 #     long_description = f.read()     
    
 
-__version__ = "0.0.3.3" # 修改過 0.0.3 到 0.0.4 變成 0.0.4.0
+__version__ = "0.0.4" # 每在Github Actions 要執行 publish 時，需修改 version 為唯一(不能重複)
 REPO_NAME = "MongoDB-Connector" # 修改過
 PKG_NAME= "mongodbconnectpkgauto" # only visible on PYPI repository; 修改過
 AUTHOR_USER_NAME = "henrykohl" # 修改過; GitHub 使用者名稱
@@ -30,9 +30,9 @@ setup(
     author=AUTHOR_USER_NAME,
     author_email=AUTHOR_EMAIL,
     description="A python package for connecting with database.",
-    long_description='firstproject', # long_description, # 修改後，就不需要去讀取 README.md
+    long_description='# firstproject', # long_description, # 修改後，就不需要去讀取 README.md
     long_description_content="text/markdown",
-    long_description_content_type='text/markdown',
+    long_description_content_type='text/markdown', # Lecture 沒有，則出現 warning ... missing 警告
     url=f"https://github.com/{AUTHOR_USER_NAME}/{REPO_NAME}",
     project_urls={
         "Bug Tracker": f"https://github.com/{AUTHOR_USER_NAME}/{REPO_NAME}/issues",
