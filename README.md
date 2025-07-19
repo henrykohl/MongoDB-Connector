@@ -370,51 +370,7 @@ mypy==0.971
   > Provide you the local environment for testing your application (the number of environments can be more than one). We can create the environments for different versions. PS. `-v` is verbose -- whatever execution is happening in backend, you are going to see all the execution in your screen. PS. `--count` is the command line argument. PS. E9, F63, ..., **PEP**, they define the python protocol. PS. `--select ... --statistics` can be removed. PS. `mypy` 是 linting tool: check the code whether it's correct or not. \
   > (1:42:45)  `pyproject.toml`: the configuration is related to/ visible to our packages. [] 也就是 tag. Inside the tage, you will find out the information. Either you can write it down inside the `setup.cfg` or in the `pyproject.toml`; these two files.
 
-* (1:44:35) 完成 `.github/workflows/ci.yaml`
-
-```yaml
-name: Python application
-
-on:
-  push:
-    branches: [ "main" ] # integrate with the "main" branch
-    paths-ignore:
-        - 'README.md'  
-  pull_request:
-    branches: [ "main" ] # integrate with the "main" branch
-    paths-ignore:
-        - 'README.md'  
-        
-
-permissions:
-  contents: read
-
-jobs:
-  build:
-
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix: # 2*2 combinations
-        # os: [ubuntu-latest, windows-latest] # two operation systems
-        # python-version: ["3.8", "3.9"] # two versions
-        os: [windows-latest] # 測試
-        python-version: ["3.8"] # 測試
-
-    steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v3
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install flake8 pytest tox tox-gh-actions
-        pip install -r requirements.txt
-    - name: Test with tox
-      run: tox # used for testing in our local environment. 
-      # we can also run the command in the terminal. The command is `tox`
-```
+* (1:44:35) 完成 `.github/workflows/ci.yaml`, 檔案裡可以有中文註釋
 
 * (1:45:00) 建立 `.github/workflows/python-publish.yaml`
   > 主要來自於 [Publish Python Package](https://github.com/henrykohl/MongoDB-Connector/actions/new)，點選 **Configure**，就可以看到  Github 編寫好的 yaml/yml 檔案。\
