@@ -22,8 +22,8 @@ jobs:
       matrix: # 2*2 combinations
         # os: [ubuntu-latest, windows-latest] # two operation systems
         # python-version: ["3.8", "3.9"] # two versions
-        os: [windows-latest] # testing
-        python-version: ["3.8"] # testing
+        os: [windows-latest] # 測試 testing
+        python-version: ["3.8"] # 測試 testing
 
     steps:
     - uses: actions/checkout@v3
