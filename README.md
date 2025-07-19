@@ -308,37 +308,6 @@ for filepath in list_of_files:
   > git push -u origin main
   > ```
 
-```python
-[metadata]
-license = MIT # a license of the repository
-license_file = LICENSE
-classifiers = 
-    #  Programming Language :: Python :: 3.7 # removed
-    Programming Language :: Python :: 3.8
-    Programming Language :: Python :: 3.9
-    Operating System :: OS Independent
-
-[options]
-install_requires = 
-    ensure==1.0.2
-    py-youtube==1.1.7
-python_requires = >=3.7
-
-[options.extras_require]
-testing =
-    pytest>=7.1.3
-    mypy>=0.971
-    flake8>=5.0.4
-    tox>=3.25.1
-    black>=22.8.0
-
-[options.package_data] # reference https://discuss.python.org/t/simple-documentation-for-setup-cfg/11465/11
-MongoDB-Connect=py.typed
-
-[flake8]
-max-line-length = 160
-exclude = __init__.py
-```
 
 ```text
 pymongo
@@ -365,12 +334,12 @@ mypy==0.971
 * code explanation
   > (1:10:45) `requirements_dev.txt`: requirement for development environment. dsnpython -- for MongoDB. ensure -- use for ensuring something. pytest -- test for use cases. tox (用在tox.ini) --  using the tox, we can create a testing environment. black and flask8 -- linting tools. \n
   > (1:14:55) `setup.py`: 在 Lecture 3 中加入 `install_requires=get_requirement("requirements_dev.txt")`，自行實現時，在 GitHub Action 中執行 Test with tox 時，找不到 `"requirements_dev.txt"`，不知道為何！後來才google到解決方式~建立 `MANIFEST.in` 加入 `include requirements_dev.txt`
-  > (1:23:45) `setup.cfg`: 檔案中 每一個 tag/title - 也就是 [] - 後面是 information ，有對應的 Key & value. It's just an extension of `setup.py`, representing a configuration of `setup.py`. \
+  > (1:23:45) `setup.cfg`: 檔案中 每一個 tag/title - 也就是 [] - 後面是 information ，有對應的 Key & value. It's just an extension of `setup.py`, representing a configuration of `setup.py`. (註釋最好不要用中文，否則 install dependencies (若用Windows 系統) 時會出現 `WARNING: Ignore distutils configs in setup.cfg due to encoding errors.` 警告) \
   > (1:30:40) `tox.ini` (testing for development environment) are using for testing our code in local environment in a development environment if we want our code in a local environment or while we are going to integrate it. So, while performing this CI, I'm going to perform it by using the GitHub. GitHub is also having one service which provides us a server -- the service name is called GitHub Action. Once it creats the python environment, the first place it will create a python environment. Then, it will install the dependency inside that environment. In [testenv], `deps=...` will install the requirements_dev.txt. Finally, it's going to perform the following particular commands (`commands=...`). `flake8 src ...` means that going into the `src` folder, it is using the `flake8`. `mypy src/` means that checking `src/` we are using `mypy`. `mypy` is a linting tool, which is able to check whether the code is correct. Using `flake8` for all our code is following all the protocol or not. Again, we are going to do testing by using the tox.ini file. `pytest -v ...` will do unit testing and integration testing.
   > Provide you the local environment for testing your application (the number of environments can be more than one). We can create the environments for different versions. PS. `-v` is verbose -- whatever execution is happening in backend, you are going to see all the execution in your screen. PS. `--count` is the command line argument. PS. E9, F63, ..., **PEP**, they define the python protocol. PS. `--select ... --statistics` can be removed. PS. `mypy` 是 linting tool: check the code whether it's correct or not. \
   > (1:42:45)  `pyproject.toml`: the configuration is related to/ visible to our packages. [] 也就是 tag. Inside the tage, you will find out the information. Either you can write it down inside the `setup.cfg` or in the `pyproject.toml`; these two files.
 
-* (1:44:35) 完成 `.github/workflows/ci.yaml`, 檔案裡可以有中文註釋
+* (1:44:35) 完成 `.github/workflows/ci.yaml` (檔案裡可以有中文註釋)
 
 * (1:45:00) 建立 `.github/workflows/python-publish.yaml`
   > 主要來自於 [Publish Python Package](https://github.com/henrykohl/MongoDB-Connector/actions/new)，點選 **Configure**，就可以看到  Github 編寫好的 yaml/yml 檔案。\
