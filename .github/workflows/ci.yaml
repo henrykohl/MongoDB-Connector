@@ -2,14 +2,14 @@ name: Python application
 
 on:
   push:
-    branches: [ "main" ] # integrate with the "main" branch
+    branches: [ "main" ]
     paths-ignore:
         - 'README.md'  
   pull_request:
-    branches: [ "main" ] # integrate with the "main" branch
+    branches: [ "main" ]
     paths-ignore:
         - 'README.md'  
-        
+
 
 permissions:
   contents: read
@@ -19,11 +19,9 @@ jobs:
 
     runs-on: ${{ matrix.os }}
     strategy:
-      matrix: # 2*2 combinations
-        # os: [ubuntu-latest, windows-latest] # two operation systems
-        # python-version: ["3.8", "3.9"] # two versions
-        os: [windows-latest] # 測試
-        python-version: ["3.8"] # 測試
+      matrix:
+        os: [windows-latest] 
+        python-version: ["3.8"]
 
     steps:
     - uses: actions/checkout@v3
@@ -37,5 +35,4 @@ jobs:
         pip install flake8 pytest tox tox-gh-actions
         pip install -r requirements.txt
     - name: Test with tox
-      run: tox # used for testing in our local environment. 
-      # we can also run the command in the terminal. The command is `tox`
+      run: tox

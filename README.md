@@ -351,6 +351,50 @@ exclude = __init__.py
 
 * (1:44:35) 完成 `.github/workflows/ci.yaml`
 
+```yaml
+name: Python application
+
+on:
+  push:
+    branches: [ "main" ] # integrate with the "main" branch
+    paths-ignore:
+        - 'README.md'  
+  pull_request:
+    branches: [ "main" ] # integrate with the "main" branch
+    paths-ignore:
+        - 'README.md'  
+        
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix: # 2*2 combinations
+        # os: [ubuntu-latest, windows-latest] # two operation systems
+        # python-version: ["3.8", "3.9"] # two versions
+        os: [windows-latest] # 測試
+        python-version: ["3.8"] # 測試
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install flake8 pytest tox tox-gh-actions
+        pip install -r requirements.txt
+    - name: Test with tox
+      run: tox # used for testing in our local environment. 
+      # we can also run the command in the terminal. The command is `tox`
+```
+
 * (1:45:00) 建立 `.github/workflows/python-publish.yaml`
   > 主要來自於 [Publish Python Package](https://github.com/henrykohl/MongoDB-Connector/actions/new)，點選 **Configure**，就可以看到  Github 編寫好的 yaml/yml 檔案。\
   > `flake8 .` 中那一個點是指 current directory. We are checking into the current directory, whatever thing is wrong like we have not written according to the protocol. It will generate a like warning or information of the message regarding to those thing/those issues. `flake8` 後也可以指定一個 specific folder over here. It means that you can look into the entire workspace. \
