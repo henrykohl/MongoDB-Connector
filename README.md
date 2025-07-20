@@ -382,6 +382,33 @@ for filepath in list_of_files:
 
 # Lecture 4 Note -- [GIT & DOCKER For MLOps Projec](https://www.youtube.com/watch?v=KWoyJwqt22I)
 
+# Lecture 5 Node -- [GIT & DOCKER Part 2 - MLOps Foundatio](https://www.youtube.com/watch?v=VIAcD6P_Etc)
+
+## The basic concept og GIT (18:00)
+
+* Create a new repository in GitHub (名稱：practice)，開啟 VS Code ，在 terminal 中執行
+  > ```bash
+  > ls -la
+  > rm -rf .git # 如果有 .git 存在
+  > ```
+
+* (23:45) GIT -- 
+  > source code management system (SCMS) \
+  > version control \
+  > it's much required for DEVOPS or MLOPS. \
+  > it's free to install git.
+<pre>  git local system:
+___________________
+|       |         |       (1): local folder -- using `git init` to convert it to the repository
+|       |   (2)   |
+|       |         |
+|  (1)  |_________|       (2): staging area -- git add <>, <> can be `.`, which means `all`.
+|       |         |
+|       |   (3)   |       (3): commit area -- git commit <'SNAPSHOT'>
+|       |         |
+|_______|_________|
+</pre>
+
 ## Code Recap (27:00)
 
 * `init_setup.sh`: If you are going to create an environment for that some like repeated command is required like `conda create`、`conda activate`, all which you are running on your bash terminal (on your windows terminal). You can write down each and every command inside your shell script (.sh). And, you can run it in a single shot by using the bash commands.
