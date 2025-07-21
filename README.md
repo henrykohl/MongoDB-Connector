@@ -451,7 +451,7 @@ so inside this experiment folder, I had created the ipynb file.
   > to manage different versions of code
 
 
-<pre>  git local system:
+<pre>git local system:
 ___________________
 |       |         |       (1): local folder -- using `git init` to convert it to the repository
 |       |   (2)   |
@@ -463,7 +463,9 @@ ___________________
 |_______|_________|
 </pre>
 
-<pre>  one more example:
+* After initializing the git so once we got a git as soon as we will run this particular command(`git init`), you will get one folder actually. This is a hidden folder. The name is going to start with DOT -- `.git`. so inside the local workspace yo u will find out the `.git` folder.
+
+<pre>one more example:
 abc.txt(v1):
 my name is sunny
 
@@ -484,7 +486,56 @@ savita
 do (1)->(2)->(3): get another different hash key id
 </pre>
 
-* (46:04)
+* (46:04) CVCS -- Centralized Version Control System
+
+<pre>
+ __________________________________________________
+|                  Central Repo.                   |
+|__________________________________________________|
+     |             |             |             |
+     |             |             |             |
+     |             |             |             |
+     |             |             |             |
+    |A|           |B|           |C|           |D|  
+    (developer with LSM: local system management)  no git
+</pre>
+
+* (53:56) DVCS -- Distributed Version Control System
+  > i.e., GitHub: Hub for git, Gitlab, bitbucket \
+  > After committing inside the local repository right from the stagin area. Then basically they need to push it somewhere inside the centrol repo
+  > <pre>
+  > They are working on the same branch on the same code on the same project.
+  > They are managing this thing by using the git inside their local folder itself.
+  > Finally they are pushing it over the cloud repo--the centralized system repo.
+  > Git is managing the entire code.
+  > 
+  >  __________________________________________________
+  > |                  Central Repo.                   |
+  > |__________________________________________________|
+  >      |             |             |             |
+  >      |             |             |             |
+  >      |             |             |             |
+  >      |             |             |             |
+  >     |A|           |B|           |C|           |D|  
+  >     git           git           git           git
+  > </pre>
+
+<pre>
+Developer A ~ git <-- System Control Management (SCM)
+ _____________________
+| login.py  |         |    
+|           |   (2)   |
+|           |         |
+|   (1)     |_________|    
+|           |         |
+|           |   (3)   |    
+|           |         |
+|___________|_________|
+(1) local folder[local repo]: git init 
+(1)->(2): `git add < >`
+
+
+</pre>
 
 # 參考
 
