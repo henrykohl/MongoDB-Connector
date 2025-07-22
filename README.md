@@ -502,7 +502,8 @@ do (1)->(2)->(3): get another different hash key id
 
 * (53:56) DVCS -- Distributed Version Control System
   > i.e., GitHub: Hub for git, Gitlab, bitbucket \
-  > After committing inside the local repository right from the stagin area. Then basically they need to push it somewhere inside the centrol repo
+  > After committing inside the local repository right from the stagin area. Then basically they need to push it somewhere inside the centrol repo. \
+  > committing means you are just going to save it, you will get one ID
   > <pre>
   > They are working on the same branch on the same code on the same project.
   > They are managing this thing by using the git inside their local folder itself.
@@ -520,22 +521,137 @@ do (1)->(2)->(3): get another different hash key id
   >     git           git           git           git
   > </pre>
 
-<pre>
-Developer A ~ git <-- System Control Management (SCM)
- _____________________
-| login.py  |         |    
-|           |   (2)   |
-|           |         |
-|   (1)     |_________|    
-|           |         |
-|           |   (3)   |    
-|           |         |
-|___________|_________|
-(1) local folder[local repo]: git init 
-(1)->(2): `git add < >`
+  > <pre>
+  > Developer A ~ git <-- System Control Management (SCM)
+  >  _____________________                                            GITHUB (centralized repo)
+  > | login.py  |         |                                        _____________________________
+  > |           |   (2)   |                                       |                             |
+  > |           |         |                                       |                             |
+  > |   (1)     |_________|    -------push----------------------->|          login.py           |
+  > |           |         |                                       |                             |
+  > |           |   (3)   |                                       |                             |  
+  > | course.py |         |    <-------pull-----------------------|                             |
+  > |___________|_________|                                       |                             |
+  > (1) local folder[local repo]: git init                        |                             |
+  > (1)->(2): `git add < >`                                       |                             |
+  > (2) staging area                                              |                             |
+  > (2)->(3):  `git commit <'snapshot'>` <= hash key              |                             |
+  > (3): main branch                                              |                             |
+  >                                                               |                             |
+  > Developer B ~ git <-- System Control Management (SCM)         |                             |
+  >  _____________________                                        |                             |
+  > | course.py |         |                                       |                             |    
+  > |           |   (2)   |                                       |                             |
+  > |           |         |                                       |                             |
+  > |   (1)     |_________|    -------push----------------------->|          course.py          |    
+  > |           |         |                                       |                             |
+  > | login.py  |   (3)   |    <-------pull-----------------------|                             |   
+  > |           |         |                                       |_____________________________| 
+  > |___________|_________|
+  > (1) local folder[local repo]: git init 
+  > (1)->(2): `git add < >`
+  > (2) staging area
+  > (2)->(3):  `git commit <'snapshot'>` <= hash key
+  > (3): main branch 
+  > </pre>
 
+* Logical representation of the GIT
+  > We have main branch and we can create as many as branch over here itself inside our local repository
+  <pre>project xyz 
+  Actually we cannot give the access of the main branch to any new developer.
 
-</pre>
+  [main branch]________________________________________..
+                            |               |
+                            |               |
+  [test branch]             |_______________|
+                            ^               ^         
+                      branch fork      branch merging 
+  test branch is for developer-2.                    
+  </pre>
+
+## (1:18:50) Perform the practical
+
+* In VS Code, create a file -- 'abc.txt'
+```bash
+git init # the local folder will be converted into a local repository
+git status # checking
+git add . # promote pending changes in the workspace, to the git staging area. (google來的)
+
+git status # checking again.
+
+git config --global user.email "你的email"
+git config --global user.name "你的帳戶名"
+
+git commit -m "first commit"
+
+git --version # the version of git
+
+which git # the location where the git is available
+
+git config --list # find out the usename, email, ...
+
+git log # find out the particular commit ID
+```
+* 將 abc.txt 的內容編輯成 `Hey!! my name is sunny savita`
+  > 執行 `git status` \
+  > 可見到 `modified: abc.txt` 的資訊(紅字) 
+
+```bash
+git add abc.txt
+git status
+```
+  > 可見到 `modified: abc.txt` 的資訊(綠字) 
+
+  ```bash
+  git commit -m "second commit"
+  git log # there are two IDs~ And copy the latest commit ID only with a few initial chars
+  git show ... # `...` is copied chars.
+  ```
+
+* 將 abc.txt 的內容新增 `i am working as a data scientist`
+
+```bash
+git status # checking
+git add abc.txt && git commit -m "third commit"
+git log # there are three commit IDs~ copy a particular commit ID only with a few initial chars
+git show # ... # `...` is copied chars.
+```
+
+* 執行 `conda create -p env python=3.8 -y` 建立 env 環境
+```bash
+git add . # staging env
+git status # a lot of files are shown
+# git rm --cache # useless??
+git reset . # unstaging env (don't use `restore`)
+git status
+```
+
+* (1:48:40) 建立 .gitignore  ，編輯內容加入 env
+
+* Branch
+```bash
+git branch # get the branch name
+git branch testfirstbranch # create a branch, whose name is testfirstbranch. 
+git branch # get all the branch names
+git checkout testfirstbranch # swith branch
+git log # show all commits in testfirstbranch, should be the same as commits in MASTER
+```
+
+* 建立 xyz.txt, 編輯內容為 `hey i hope you are enjoying this section`
+
+```bash
+git status # checking( should show untracked files -- '.gitignore' and xyz.txt) 
+git add .
+git commit -m "fourth commit"
+git log # there are four commits
+
+git branch # two branches
+git checkout master # switch to master branch
+git branch # master branch has a '*'
+
+git merge testfirstbranch # branches merge 
+git status # there are still two branches. We are working in two branches separately
+```
 
 # 參考
 
