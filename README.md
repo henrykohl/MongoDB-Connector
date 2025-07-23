@@ -559,13 +559,14 @@ so inside this experiment folder, I had created the ipynb file.
   > <pre>project xyz 
   > Actually we cannot give the access of the main branch to any new developer.
   > 
-  > [main branch]________________________________________..
+  > [main branch]_____________x_______________x__________..
   >                           |               ^
   >                           |               |
   > [test branch]             V_______________|
   >                                                
   >                     branch fork      branch merging 
-  > test branch is for developer-2.                    
+  > - test branch is for developer-2.    
+  > - 'x' is a commit point                
   > </pre>
 
 ## (1:18:50) Perform the practical
@@ -669,15 +670,60 @@ so inside this experiment folder, I had created the ipynb file.
 
 * Review the logical architecture of the GIT (the same as that in Lecture 5)
 
-* ()
+* (28:10) Particular Concepts
+  > <pre>git local system:
+  > ______________________
+  > |         |          |    
+  > |         |          |
+  > |         |          |
+  > |         |__________|    
+  > |         |   main   |
+  > |         |//////////|    
+  > |         | branch_1 |
+  > |         |//////////|
+  > |         | branch_2 |
+  > |_________|__________|
 
+  > Project: Facebook
+  > - using the git for the version control(source code management & code versioning)
+  > - Default branch: 'main' (包含功能 -- 'login', 'logout', 'UI', ...)
+  > - Developer A (working in 'main'): functionality -- image uploading, post
+  > - Developer B (working in 'branch_1'): functionality -- comment, emojs, like, video uploading
+  >
+  >
+  > [ branch_2 ]                      x_______________x
+  >                                   ^               |
+  >                                   |               v
+  > [main branch]_____________x_______x_______x_______x____________..
+  >                           |               ^
+  >                           |               |
+  > [ branch_1 ]              V_______________|
 
-
-using the git for the version control(source code management and code versioning)
-
+  > </pre>
 Developer A is using the GIT and creating a facebook application.
 He has created some sort of functionality (e.g., logging functionality)
- 
+
+* (38:00) Practical concepts
+  > 由 Lecture 5 結束地方開始，開啟 VS Code，此時應該包括: env 資料夾，.gitignore，abc.txt，xyz.txt。將abc.txt與xyz.txt刪除。
+  > ```bash
+  > ls -al # . .. .git .gitignore
+  > cd .git 
+  > ls # list all the directory
+  > cd ..
+  > 
+  > git status # deleted: abx.txt and xyz.txt (紅色)
+  > git add .
+  > git status # deleted: abx.txt and xyz.txt (綠色)
+  > git commit -m "file deleted" # 未能成功
+  > git config --global user.email "email帳號"
+  > git config --global user.name "username"
+  > git commit -m "file deleted" 
+  > git status # checking
+  > git branch # 'master' and 'testfirstbranch'
+  > git branch -d testfirstbranch 
+  > git branch # 'master'
+  > 
+  > ```
 
 
 
