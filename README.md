@@ -725,10 +725,60 @@ He has created some sort of functionality (e.g., logging functionality)
   > 
   > ```
 
+* (49:30) Creating a file -- `testing.py`. Then, run `python testing.py`
+  > ```python
+  > # version1
+  > a, b=10, 20
+  >
+  > print(a+b)
+  > ```
 
+```bash
+git add testing.py
+git status # checking
+git commit -m "addition done"
 
-               
+git log # show all the commits
 
+git branch branch1 
+git branch # show all the branches
+git checkout branch1 # switch to 'branch1'
+git branch
+```
+
+* (55:35) Modifying `testing.py`
+  > ```python
+  > # version2
+  > a, b=10, 20
+  >
+  > print(a+b)
+  > 
+  > c, d=20, 50
+  >
+  > print(c*d)
+  > ```
+
+```bash
+git status
+git checkout master
+git status
+
+git checkout branch1
+git add .
+git commit -m "multiplication added"
+git branch 
+
+git checkout branch1
+git status
+
+git branch
+git checkout master # `testing.py` 內容變回 version1
+```
+
+* (1:03:00) Creating a file -- `testing2.py`.
+  > ```python
+  > print("hello how are you?")
+  > ```
 
 # 參考
 
