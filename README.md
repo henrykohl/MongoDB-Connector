@@ -432,7 +432,7 @@ so inside this experiment folder, I had created the ipynb file.
 
 ---
 
-# Lecture 5 Node -- [GIT & DOCKER Part 2 - MLOps Foundatio](https://www.youtube.com/watch?v=VIAcD6P_Etc)
+# Lecture 5 Note -- [GIT & DOCKER Part 2 - MLOps Foundatio](https://www.youtube.com/watch?v=VIAcD6P_Etc)
 
 ## The basic concept og GIT (18:00)
 
@@ -450,55 +450,54 @@ so inside this experiment folder, I had created the ipynb file.
   > git is an open source, a version control system.
   > to manage different versions of code
 
-
-<pre>git local system:
-___________________
-|       |         |       (1): local folder -- using `git init` to convert it to the repository
-|       |   (2)   |
-|       |         |
-|  (1)  |_________|       (2): staging area -- `git add <>`, <> can be `.`, which means `all`.
-|       |         |
-|       |   (3)   |       (3): commit area -- `git commit <'SNAPSHOT'>`
-|       |         |
-|_______|_________|
-</pre>
+  > <pre>git local system:
+  > ___________________
+  > |       |         |       (1): local folder -- using `git init` to convert it to the repository
+  > |       |   (2)   |
+  > |       |         |
+  > |  (1)  |_________|       (2): staging area -- `git add <>`, <> can be `.`, which means `all`.
+  > |       |         |
+  > |       |   (3)   |       (3): commit area -- `git commit <'SNAPSHOT'>`
+  > |       |         |
+  > |_______|_________|
+  > </pre>
 
 * After initializing the git so once we got a git as soon as we will run this particular command(`git init`), you will get one folder actually. This is a hidden folder. The name is going to start with DOT -- `.git`. so inside the local workspace yo u will find out the `.git` folder.
 
-<pre>one more example:
-abc.txt(v1):
-my name is sunny
-
-____________________
-| abc.txt |         |    (1): local workspace -- run `git init` -- get `.git` folder
-|         |   (2)   |
-|         |         |
-|  (1)    |_________|    (1)->(2): staging  -- run `git add abc.txt`
-|         |         |
-|         |   (3)   |    (2)->(3): run `git commit <'SNAPSHOT'>` -- get hash key id (alpha numeric value)
-|         |         |
-|_________|_________|
-
-abc.txt(v2):
-my name is sunny
-savita
-
-do (1)->(2)->(3): get another different hash key id
-</pre>
+  > <pre>one more example:
+  > abc.txt(v1):
+  > my name is sunny
+  > 
+  > ____________________
+  > | abc.txt |         |    (1): local workspace -- run `git init` -- get `.git` folder
+  > |         |   (2)   |
+  > |         |         |
+  > |  (1)    |_________|    (1)->(2): staging  -- run `git add abc.txt`
+  > |         |         |
+  > |         |   (3)   |    (2)->(3): run `git commit <'SNAPSHOT'>` -- get hash key id (alpha numeric value)
+  > |         |         |
+  > |_________|_________|
+  > 
+  > abc.txt(v2):
+  > my name is sunny
+  > savita
+  > 
+  > do (1)->(2)->(3): get another different hash key id
+  > </pre>
 
 * (46:04) CVCS -- Centralized Version Control System
 
-<pre>
- __________________________________________________
-|                  Central Repo.                   |
-|__________________________________________________|
-     |             |             |             |
-     |             |             |             |
-     |             |             |             |
-     |             |             |             |
-    |A|           |B|           |C|           |D|  
-    (developer with LSM: local system management)  no git
-</pre>
+  > <pre>
+  >  __________________________________________________
+  > |                  Central Repo.                   |
+  > |__________________________________________________|
+  >      |             |             |             |
+  >      |             |             |             |
+  >      |             |             |             |
+  >      |             |             |             |
+  >     |A|           |B|           |C|           |D|  
+  >     (developer with LSM: local system management)  no git
+  > </pre>
 
 * (53:56) DVCS -- Distributed Version Control System
   > i.e., GitHub: Hub for git, Gitlab, bitbucket \
@@ -649,6 +648,41 @@ do (1)->(2)->(3): get another different hash key id
   > git merge testfirstbranch # branches merge 
   > git status # there are still two branches. We are working in two branches separately
   > ```
+
+
+# Lecture 6 Note -- [GIT & DOCKER Part 3 - MLOps Foundation](https://www.youtube.com/watch?v=uq-78kXJY4E) 
+
+* Agenda
+  > 1. Git branch
+  > 2. Merging
+  > 3. Conflict
+  > 4. stashing
+  > 5. reset
+  > 6. revert
+  > 7. tagging
+  >
+  > - open source contribution 
+  > - fork 
+  > - changes 
+  > - push 
+  > - pull requests 
+
+* Review the logical architecture of the GIT (the same as that in Lecture 5)
+
+* ()
+
+
+
+using the git for the version control(source code management and code versioning)
+
+Developer A is using the GIT and creating a facebook application.
+He has created some sort of functionality (e.g., logging functionality)
+ 
+
+
+
+               
+
 
 # 參考
 
