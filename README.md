@@ -847,8 +847,27 @@ git checkout master
   git commit -m "successfully merged"
   ```
 
-* (1:30:00) Git stashing
+## (1:30:00) Git stashing
+  > keep something on hold: you cannot 'add', you cannot commit. \
+  > you can keep it inside your temp repository. 
 
+
+* (1:37:19) p4actical demo
+
+  > ```bash
+  > touch stashingdemo.txt
+  > git add .
+  > git commit -m "stashed file updated"
+  > git status # nothing to commit, working tree clean
+  > git branch # master
+  > ```
+  > - edit 'stashingdemo.txt'
+  > ```txt
+  > hi guys welcome to this community session of mlops.
+  > ```
+  > ```bash
+  > git stash # 'stashingdemo.txt' becomes empty.
+  > 
 
 
 
