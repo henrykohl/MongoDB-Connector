@@ -779,6 +779,83 @@ git checkout master # `testing.py` 內容變回 version1
   > ```python
   > print("hello how are you?")
   > ```
+```bash
+git branch # master
+git status
+
+git add .
+git commit -m "create a new file"
+
+git branch # master
+git checkout branch1
+
+```
+
+* Creating a file -- `testing1.py
+  > ```python
+   > print("what you are doing?")
+   > ```
+
+```bash
+git branch # branch1
+git add .
+git commit -m "file added"
+
+git checkout master
+git branch
+
+git merge branch1 # have to write a simple message
+
+git branch # master
+
+git checkout branch1 # have 'testing.py','testing1.py'
+
+git branch # branch1
+git checkout master
+```
+* (1:15:00) Creating a file in 'master' -- `demo.txt`
+  > ```txt
+  > hi there my name is sunny.
+  > ```
+   ```bash
+   git add .
+   git commit -m "demo file added"
+   git checkout branch1
+   ```
+* (1:16:32) Creating a file in 'branch1' -- `demo.txt`
+  > ```txt
+  > i am working as a data scientist and AI developer
+  > ```
+  ```bash
+  git add .
+  git commit -m "demo created and file added"
+
+  git checkout master # look into demo.txt
+  git checkout branch1 # look into demo.txt (different)
+  
+  git checkout master
+  git merge branch1 # CONFLICT
+  ```
+* (1:20:40) Tackle content CONFLICT
+
+
+
+* (1:27:00) manually edit demo.txt
+
+  ```bash
+  git add .
+  git commit -m "successfully merged"
+  ```
+
+* (1:30:00) Git stashing
+
+
+
+
+
+
+
+
 
 # 參考
 
