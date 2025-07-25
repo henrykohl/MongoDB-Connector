@@ -732,19 +732,18 @@ He has created some sort of functionality (e.g., logging functionality)
   >
   > print(a+b)
   > ```
+  ```bash
+  git add testing.py
+  git status # checking
+  git commit -m "addition done"
 
-```bash
-git add testing.py
-git status # checking
-git commit -m "addition done"
+  git log # show all the commits
 
-git log # show all the commits
-
-git branch branch1 
-git branch # show all the branches
-git checkout branch1 # switch to 'branch1'
-git branch
-```
+  git branch branch1 
+  git branch # show all the branches
+  git checkout branch1 # switch to 'branch1'
+  git branch
+  ```
 
 * (55:35) Modifying `testing.py`
   > ```python
@@ -757,62 +756,60 @@ git branch
   >
   > print(c*d)
   > ```
+  ```bash
+  git status
+  git checkout master
+  git status
 
-```bash
-git status
-git checkout master
-git status
+  git checkout branch1
+  git add .
+  git commit -m "multiplication added"
+  git branch 
 
-git checkout branch1
-git add .
-git commit -m "multiplication added"
-git branch 
+  git checkout branch1
+  git status
 
-git checkout branch1
-git status
-
-git branch
-git checkout master # `testing.py` 內容變回 version1
-```
+  git branch
+  git checkout master # `testing.py` 內容變回 version1
+  ```
 
 * (1:03:00) Creating a file -- `testing2.py`.
   > ```python
   > print("hello how are you?")
   > ```
-```bash
-git branch # master
-git status
+  ```bash
+  git branch # master
+  git status
 
-git add .
-git commit -m "create a new file"
+  git add .
+  git commit -m "create a new file"
 
-git branch # master
-git checkout branch1
-
-```
+  git branch # master
+  git checkout branch1
+  ```
 
 * Creating a file -- `testing1.py
   > ```python
-   > print("what you are doing?")
-   > ```
+  > print("what you are doing?")
+  > ```
+  ```bash
+  git branch # branch1
+  git add .
+  git commit -m "file added"
 
-```bash
-git branch # branch1
-git add .
-git commit -m "file added"
+  git checkout master
+  git branch
 
-git checkout master
-git branch
+  git merge branch1 # have to write a simple message
 
-git merge branch1 # have to write a simple message
+  git branch # master
 
-git branch # master
+  git checkout branch1 # have 'testing.py','testing1.py'
 
-git checkout branch1 # have 'testing.py','testing1.py'
+  git branch # branch1
+  git checkout master
+  ```
 
-git branch # branch1
-git checkout master
-```
 * (1:15:00) Creating a file in 'master' -- `demo.txt`
   > ```txt
   > hi there my name is sunny.
@@ -841,15 +838,15 @@ git checkout master
 
 
 * (1:27:00) manually edit demo.txt
-
-  ```bash
-  git add .
-  git commit -m "successfully merged"
-  ```
+  > ```bash
+  > git add .
+  > git commit -m "successfully merged"
+  > ```
 
 ## (1:30:00) Git stashing
-  > keep something on hold: you cannot 'add', you cannot commit. \
-  > you can keep it inside your temp repository. 
+
+>  > keep something on hold: you cannot 'add', you cannot commit. \
+>  > you can keep it inside your temp repository. 
 
 
 * (1:37:19) p4actical demo
@@ -862,12 +859,42 @@ git checkout master
   > git branch # master
   > ```
   > - edit 'stashingdemo.txt'
-  > ```txt
-  > hi guys welcome to this community session of mlops.
-  > ```
+  > > ```txt
+  > > hi guys welcome to this community session of mlops.
+  > > ```
   > ```bash
-  > git stash # 'stashingdemo.txt' becomes empty.
+  > git stash # 'stashingdemo.txt' becomes empty. It's gone inside the temporary repo.
+  > git stash list # stash@{0}...
+  > ```
+  > - edit 'stashingdemo.txt' again
+  > > ```txt
+  > > i am sunny savita and i working as a data scientist ml engineer and mentor
+  > > ```
+  > ``` bash
+  > git stash # 'stashingdemo.txt' becomes empty again.
+  > git stash list # stash@{0}... stash@{1}...
+  > ```
+  > - edit 'stashingdemo.txt' once more again!
+  > > ```txt
+  > > so we are learning git
+  > > ```
+  > ``` bash
+  > git stash # 'stashingdemo.txt' becomes empty once more again.
+  > git stash list # stash@{0}... stash@{1}... stash@{2}
   > 
+  > git stash apply stash@{0} # show the latest one (so we are learning git).
+  > # git stash@{2} # 不可以在未 commit 情況下 繼續呼叫 stash memory 中的其他記錄
+  > 
+  > git add .
+  > git commit -m "text is updated"
+  > git stash@{2}  # need to manually check
+  > git add .
+  > git commit -m "file updated"
+  > git stash list # there are still three messages/records
+  >
+  > git stash clear
+  > git stash list # no more message
+  > ```
 
 
 
