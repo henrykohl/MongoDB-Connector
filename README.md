@@ -896,9 +896,39 @@ He has created some sort of functionality (e.g., logging functionality)
   > git stash list # no more message
   > ```
 
+## (1:53:30) Revert adn Reset
 
+  > <pre>git local system:
+  > ___________________
+  > |       |         |       (1): local workspace 
+  > |       |   (2)   |       (2): staging area
+  > |       |         |       (3): commit area
+  > |  (1)  |_________|  
+  > |       |         |       (1)->(2): add
+  > |       |   (3)   |       (2)->(3): commit
+  > |       |         |       (2)->(1): reset
+  > |_______|_________|       (3)->(1): revert
+  > </pre>
 
-
+* (1:56:00) Practical demo
+  > ```bash
+  > touch reseting.txt
+  > touch reverting.txt
+  > git add reseting.txt
+  > git status
+  > 
+  > git reset reseting.txt
+  > git status # become untracked
+  > 
+  > git add reseting.txt
+  > git status # changes to be committed
+  >
+  > git commit -m "reseting file added"
+  > git log --oneline # show all commit ids
+  >
+  > git revert <指定的commit id> # required to provide your reason (i.e., "this was not good")
+  >                              # reseting.txt and reverting.txt are removed
+  > ```
 
 
 
