@@ -954,11 +954,26 @@ He has created some sort of functionality (e.g., logging functionality)
   > > 
   > - There are three types of services (1)Iaas (2)**Paas**--Docker (3)Saas
   > - We are going to use it for running the application and for deploying the application. We can build the application and run it basically and deploy it.
-  > - The main software Docker is the name of the company. the main software which is responsible for the virtualizaiton that is called Docker engine and it has been written  in Linux OS. It has been developed in a GO language. The main uses of the Docker is to build-run-deploy the application.
+  > - The main software Docker is the name of the company. the main software which is responsible for the virtualizaiton that is called Docker engine and it has been written  in Linux OS. It has been developed in a GO language. The main uses of the Docker is to **build-run-deploy** the application.
 
+## (30:30) DevOps
 
+* DevOps: Dev + testing + Ops
+  > - Dev: the core development -- build an application, build a project
+  > - Ops: deliverying the project, deploying the project, doing a maintenance monitoring
 
+* MLOPS: ML-Dev + testing + Ops
 
+ ML-Dev                        -> testing -> Ops (fails in different servers)
+ (build)
+ (python, numpy, nltk, pandas)    (different python versions, different servers)
+
+  one development environment is required
+
+  some dependencies will also be required for building this particular application. And the dependencies basically which you are going to use. So it will be having a specific version.
+
+One example (problem):
+PUBG -> Mobile -> playstore ~> 2GB ~> 90% ~> Error(related to Hardware)
 
 
 
