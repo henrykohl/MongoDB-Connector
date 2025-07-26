@@ -963,21 +963,76 @@ He has created some sort of functionality (e.g., logging functionality)
   > - Ops: deliverying the project, deploying the project, doing a maintenance monitoring
 
 * MLOPS: ML-Dev + testing + Ops
+  <pre>
+  ML-Dev   -- (build)  --  (different python versions, different servers) one development environment is required                
+    |
+  testing
+    |
+  Ops (fails in different servers)
+  </pre>
 
- ML-Dev                        -> testing -> Ops (fails in different servers)
- (build)
- (python, numpy, nltk, pandas)    (different python versions, different servers)
+  - some dependencies will also be required for building this particular application. And the dependencies basically which you are going to use. So it will be having a specific version.
 
-  one development environment is required
-
-  some dependencies will also be required for building this particular application. And the dependencies basically which you are going to use. So it will be having a specific version.
-
-One example (problem):
-PUBG -> Mobile -> playstore ~> 2GB ~> 90% ~> Error(related to Hardware)
+  - One example (problem):
+  PUBG -> Mobile -> playstore ~> 2GB ~> 90% ~> Error(related to Hardware)
 
 
 
+* Basic example"
+  <pre>
+  ML (created one application in ml) -> AWS (deployed)
+        |
+        v
+  App：scrapping of the data (this code basically you have written inside the python)
+  </pre>
+  - Regrading the mongodb there also, we faced that particular issue (this internal server error )
+  - It means that it was working fine in my local system. Whenever we are going to perform the CI, we are using a GITHUB Action server. But, our testing was going to be failed (because of the compatibility, regarding the different libraries)
 
+* Problem statement: 
+  > we are having the issue - miscommunication between the different teams(development team, testing team, ...) \
+  > - Solution:
+  > 1. Virtualization
+  > 2. Containerization (better)
+
+  <pre>
+  the high level of overview of the system
+  _____________________
+  |                   |
+  |  APP       APP    |
+  |       APP         |
+  |___________________|
+  |                   | (WIN, LINUX, MAC)
+  |        OS         |
+  |___________________|
+  |     Hardware      | (CPU, RAM, Memory)
+  |___________________|
+  </pre>
+
+* Virtualization
+  <pre>single host
+  _____________________________________
+  |                                   |
+  |     VM         VM         VM      | VM: VMware station
+  |  _________  _________  _________  |
+  |  |  APP  |  |  APP  |  |  APP  |  |                   |
+  |  |_______|  |_______|  |_______|  |
+  |  |  OS'  |  |  OS'  |  |  OS'  |  | guest OS
+  |  |_______|  |_______|  |_______|  |
+  |  | C,R,M |  | C,R,M |  | C,R,M |  |
+  |__|_______|__|_______|__|_______|__|
+  |            hypervisor             | 
+  |___________________________________|
+  |             OS/kernel             | host OS (WIN, LINUX, MAC) 
+  |___________________________________| 1. Processing 2. Memmory management 3. Security 4. Access management
+  |             Hardware              | (CPU, RAM, Memory: 8 core+i7, 16GB, 1TB)
+  |___________________________________|
+  
+  template VM: APP + OS'.
+  It is possible to share template VM with testing team and deployment also.
+  </pre>
+  > hypervisor:
+  Oracle virtual Box
+  VMware station
 
 
 
