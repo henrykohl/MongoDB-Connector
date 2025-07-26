@@ -930,6 +930,39 @@ He has created some sort of functionality (e.g., logging functionality)
   >                              # reseting.txt and reverting.txt are removed
   > ```
 
+# Lecture 7 Note -- [DOCKER - MLOps Foundation](https://www.youtube.com/watch?v=6CgKNVne2lM)
+
+* (15:00) theorectical concept behind the docker -- DOCKER
+  > 1. What is a docker?
+  > 2. How does it work?
+  > 3. Docker engine
+  > 4. Docker container and VM
+  > 5. Docker file - commands for docker file
+  > 6. Docker image
+  > 7. Docker commands
+  > 8. Port mapping
+  > 9. Docker networking
+  > 10. Docker volume
+  > 11. Docker compose
+
+* Docker (first released as an open-source project in March 2013)
+  > - docker engine <-- Linux
+  > > the actual virtualization we are going to do by using this Docker engine, which has been written inside this Linux itself. \
+  > > the actual docker enigine is responsible for creating a container and for virtualization like natively it has been written in Linux itself. 
+  > - GO 
+  > > "GO" is a language. it has been developed by the Google itself. this entire Docker has been written inside this GO language. 
+  > > 
+  > - There are three types of services (1)Iaas (2)**Paas**--Docker (3)Saas
+  > - We are going to use it for running the application and for deploying the application. We can build the application and run it basically and deploy it.
+  > - The main software Docker is the name of the company. the main software which is responsible for the virtualizaiton that is called Docker engine and it has been written  in Linux OS. It has been developed in a GO language. The main uses of the Docker is to build-run-deploy the application.
+
+
+
+
+
+
+
+
 
 
 
