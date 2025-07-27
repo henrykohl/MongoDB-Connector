@@ -1073,6 +1073,44 @@ He has created some sort of functionality (e.g., logging functionality)
   </pre>
 
 * (1:12:00) Docker -- providing the containers
+  <pre>
+  Docker -- container -- Advanced VM, Isolated Process
+
+              [single host]
+   ___________________________________
+  |                                   |
+  |  container      "          "      | container -- lightweight -- portable
+  |  _________  _________  _________  |
+  |  |       |  |       |  |       |  |                   |
+  |  |       |  |       |  |       |  |
+  |  |  APP  |  |  APP  |  |  APP  |  | 
+  |  |       |  |       |  |       |  |
+  |  |_______|  |_______|  |_______|  |  
+  |___________________________________| 
+  |           docker engine           | 
+  |___________________________________|
+  |             OS/kernel             | 
+  |___________________________________| 
+  |             Hardware              | (CPU, RAM, Memory)
+  |___________________________________|
+
+  containers are not directly interacting with the hardware and they are not having their own OS. Directly they are connecting with the OS/kernel. they are taking every sort of configuration. This is dynamic also.
+
+  We can launch as many as containers over here. 
+
+  whatever they required for running inside like a container, so directly they are fetching from the Hub. "they are running it over here" means that they are fetching in the form of images. IMAGE is nothing a kind of package where there is some sort of instructions. they are directly running it inside the container. And once the process will be finished the container is going to be stopped. And the memory and all whatever configuration they are going to be used, they are going to be released from the particular HARDWARE.
+  </pre>
+  > lightweight: containers don't have their own OS. they are taking everything from the OS kernel.
+
+* (1:20:27) Port mapping
+
+
+* (1:28:40) Docker installation
+  > [Install Docker Desktop on Windows](https://docs.docker.com/desktop/setup/install/windows-install/)
+
+  > In Windows system, open a terminal: run `docker`, `docker ps`,  
+
+  `mkdir dockertest`, `cd dockertest`, `code .` (open VSCode)
 
 # 參考
 
