@@ -1009,7 +1009,10 @@ He has created some sort of functionality (e.g., logging functionality)
   </pre>
 
 * Virtualization
-  <pre>single host
+  > 1. Oracle virtual Box
+  > 2. VMware station
+  > - hypervisor: 1. & 2.
+  <pre>single host system
   _____________________________________
   |                                   |
   |     VM         VM         VM      | VM: VMware station
@@ -1026,15 +1029,50 @@ He has created some sort of functionality (e.g., logging functionality)
   |___________________________________| 1. Processing 2. Memmory management 3. Security 4. Access management
   |             Hardware              | (CPU, RAM, Memory: 8 core+i7, 16GB, 1TB)
   |___________________________________|
+
+  It is not possible to share the entire APP + OS with testing team or OPS team.
   
-  template VM: APP + OS'.
+  template VM: APP + OS' + C,R,M.
   It is possible to share template VM with testing team and deployment also.
+
+  Summary: 
+             Virtualization -> 遇到 Problem -> 解決方式 Containerization <-  docker engine <- Docker
+                   |                                       |
+                   |______________   V/S   ________________|
   </pre>
-  > hypervisor:
-  Oracle virtual Box
-  VMware station
 
+* (1:05:30) The problem which we are having with the Virtualization
+  > 1. static, not dynamic
+  > 2. Configuration is fixed.  
 
+  <pre>
+  Whenever we are going to allot the memory, the configuration, to my VM, it's going to be fixed.
+
+  What we are going to do is to share the Hardware with this VM. But we are installing a separate OS over here. If I want to run this VM so I will have to install the separate OS.
+  So let's say here I'm running Mac in VM1, Linux in VM2, Win in VM3. Separately I have to install it and it required more memory.
+   ___________________________________
+  |                                   |
+  |     VM1        VM2        VM3     | 
+  |  _________  _________  _________  |
+  |  |  APP  |  |  APP  |  |  APP  |  |                   |
+  |  |_______|  |_______|  |_______|  |
+  |  |  Mac  |  | Linux |  |  Win  |  | 
+  |  |_______|  |_______|  |_______|  |
+  |  |2,2,100|  |2,4,200|  |2,2,   |  | When APP requires 4GB in VM3, we just have 2GB of RAM. 
+  |__|_______|__|_______|__|_______|__| We cannot do that. We cannot allot it.
+  |            hypervisor             | 
+  |___________________________________|
+  |             OS/kernel             | 
+  |___________________________________| 
+  |             Hardware              | (CPU, RAM, Memory:6 core, 8GB, 500GB)
+  |___________________________________|
+
+  whatever configuration we have alloted to this particular machine, so it's going to be fixed. And we cannot take it back. And we cannot use it for the host OS 
+
+  It required much of configuration. If I'm not using it, so in that case, it's not going to be free. It will be fixed.
+  </pre>
+
+* (1:12:00) Docker -- providing the containers
 
 # 參考
 
