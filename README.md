@@ -1104,13 +1104,40 @@ He has created some sort of functionality (e.g., logging functionality)
 
 * (1:20:27) Port mapping
 
+  <pre>
+  we cannot directly access this flask in our chrome -- directly in our host OS.
+  Actually this chrome is running our host OS if we are going to access it, it won't be working. So over here what we have to do , we have to do the port mapping
 
-* (1:28:40) Docker installation
-  > [Install Docker Desktop on Windows](https://docs.docker.com/desktop/setup/install/windows-install/)
+  whenever we are running the container at that particular time only, we have to perform the port mapping means that whatever service you are running inside the container so this port of the container and the left hand side there will be a port of the host OS. this is the container and inside the container we are running the flask. the container is isolated process. So we cannot directly access this thing inside our host OS. 
+  </pre>
 
-  > In Windows system, open a terminal: run `docker`, `docker ps`,  
 
-  `mkdir dockertest`, `cd dockertest`, `code .` (open VSCode)
+## (1:28:40) Docker 
+
+* installation [Install Docker Desktop on Windows](https://docs.docker.com/desktop/setup/install/windows-install/)
+
+* In Windows system, open a terminal: 
+  > run `docker`, `docker ps`, `docker images` (for testing) 
+  > run `mkdir dockertest`, `cd dockertest`, `code .` (open VSCode)
+
+* In VS Code, open a terminal and select *Command Prompt*:
+
+* 建立/完成 `app.py`
+  ```python
+  from flask import Flask
+  import numpy as np
+  import pandas as pd
+
+  app = Flask(__name__)
+
+  @app.route("/",methods=["GET", "POST"])
+  def home():
+      return "Hello world"
+
+  if __name__=="__main__":
+      app.run(host="0.0.0.0",port=5000)
+  ```
+  
 
 # 參考
 
