@@ -1197,12 +1197,33 @@ He has created some sort of functionality (e.g., logging functionality)
 
 * 執行 `docker run -d -p 8000:5000 myhelloapp`。開啟 browser，輸入  localhost:8000。
 
+
+# Lecture 8 Note -- [DOCKER - Part 2 | MLOps Foundation](https://www.youtube.com/watch?v=wQdOTdM0eRo)
+
+* In Windows system, open a terminal: 
+  > ```bash
+  > docker 
+  > where docker
+  > docker info
+  > docker -v
+  > ```
+
+* Agenda
+  > 1. Docker image
+  > 2. Image -> container (run image inside the container) -> detached mode
+  > 3. Push -> Docker Hub
+  > 4. Pull <- Docker Hub
+  > 5. Container in interactive
+  > 6. Image from the container
+  > - compose
+  > - network
+  > - volume
+  
 # 參考
 
 * 參1: [MongoDB Basics | Tutorial 4: Create Atlas Cluster](https://www.youtube.com/watch?v=esKNjzDZItQ)
 
 * 參2: [Simple documentation for setup.cfg](https://discuss.python.org/t/simple-documentation-for-setup-cfg/11465)
-
 ---
 # requirements_dev.txt we use for the testing
 It makes it easier to install and manage dependencies for development and testing, separate from the dependencies required for production.
