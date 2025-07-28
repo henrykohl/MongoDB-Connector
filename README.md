@@ -1122,7 +1122,7 @@ He has created some sort of functionality (e.g., logging functionality)
 
 * In VS Code, open a terminal and select *Command Prompt*:
 
-* 建立/完成 `app.py`
+* 建立/完成 `app.py`，執行 `python app.py`，開啟 browser，輸入  localhost:5000。完成後，中斷 `app.py` 程序
   ```python
   from flask import Flask
   import numpy as np
@@ -1137,7 +1137,61 @@ He has created some sort of functionality (e.g., logging functionality)
   if __name__=="__main__":
       app.run(host="0.0.0.0",port=5000)
   ```
+
+* (1:49:45) flow
+  <pre>
+  APP -> Docker file -> Docker image -> container
+   |                                        ^
+   |________________________________________| (flask--5000)
+   |
+   V
+  5000
+   |
+  host os
+               
+            port mapping
+       host port : container port
+          5000           5000
+  </pre>
+
+* (1:53:20) Create a Docker file -- `Dockerfile`
+  ```
+  FROM python:3.8 # fetch the python from the Docker Hub
+
+  COPY . /app # '.' means the local space, which means the entire code. # we'll be having one folder -- '/app'
+
+  WORKDIR /app # setting this /app folder as our working directory
+
+  RUN pip install -r requirements.txt
+
+  CMD ["python","app.py"] # "python" is the interpreter. CMD means we're running this particular file -- app.py
+  ```
+  > "FROM" means that we are going to fetch that particular tool or that particular service from the Docker Hub.
+
+* (1:58:20) 建立 `requirements.txt`
+  ```
+  flask
+  pandas
+  numpy
+  ```
   
+
+* (2:00:00) 方法一： Create Docker image: 執行  `docker build -t myhelloapp .` ('.' represents the local workspace)
+  
+* (2:02:45) 執行 `docker images` (檢視) -- we're going to run it inside the container.
+
+* (2:04:00) 方法二：執行 `docker run -d -p 5000:5000 myhelloapp`, `docker ps`
+  <pre>
+  The 2nd way where we can create an image from the container itself.
+
+  The entire container we can convert into an image and then we can pass it to our next team. we can pass the image to the next team. we can also pass the container image to the next team.
+  </pre>
+
+* 開啟 browser，輸入  localhost:5000。注意，the localhost server is stopped. We are just running it through the container.
+
+* `docker stop 影像編號` (根據 `docker ps`)。開啟 browser，輸入  localhost:5000，結果就是 nothing happens
+
+* 執行 `docker run -d -p 8000:5000 myhelloapp`。開啟 browser，輸入  localhost:8000。
 
 # 參考
 
