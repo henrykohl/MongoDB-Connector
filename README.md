@@ -1117,8 +1117,12 @@ He has created some sort of functionality (e.g., logging functionality)
 * installation [Install Docker Desktop on Windows](https://docs.docker.com/desktop/setup/install/windows-install/)
 
 * In Windows system, open a terminal: 
-  > run `docker`, `docker ps`, `docker images` (for testing) 
-  > run `mkdir dockertest`, `cd dockertest`, `code .` (open VSCode)
+  > - run `docker`, `docker ps`, `docker images` (for testing) 
+  > - run `mkdir dockertest`, `cd dockertest`, `code .` (open VSCode)
+  <pre>
+  執行 `docker images` 遇到 error during connect: This error may indicate that the docker daemon is...
+  開啟 Docker Desktop，用 docker/getting-started 啟動~
+  </pre>
 
 * In VS Code, open a terminal and select *Command Prompt*:
 
@@ -1180,7 +1184,7 @@ He has created some sort of functionality (e.g., logging functionality)
   
 * (2:02:45) 執行 `docker images` (檢視) -- we're going to run it inside the container.
 
-* (2:04:00) 方法二：執行 `docker run -d -p 5000:5000 myhelloapp`, `docker ps`
+* (2:04:00) 方法二：執行 `docker run -d -p 5000:5000 myhelloapp`, `docker ps` (檢視)
   <pre>
   The 2nd way where we can create an image from the container itself.
 
@@ -1189,7 +1193,7 @@ He has created some sort of functionality (e.g., logging functionality)
 
 * 開啟 browser，輸入  localhost:5000。注意，the localhost server is stopped. We are just running it through the container.
 
-* `docker stop 影像編號` (根據 `docker ps`)。開啟 browser，輸入  localhost:5000，結果就是 nothing happens
+* `docker stop 影像編號` (根據 `docker ps`)。開啟 browser，輸入  localhost:5000，結果就是 nothing is coming.
 
 * 執行 `docker run -d -p 8000:5000 myhelloapp`。開啟 browser，輸入  localhost:8000。
 
