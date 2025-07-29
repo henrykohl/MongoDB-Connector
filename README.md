@@ -1206,6 +1206,10 @@ He has created some sort of functionality (e.g., logging functionality)
   > where docker
   > docker info
   > docker -v
+  >
+  > docker images
+  > docker ps
+  > docker ps -a
   > ```
 
 * Agenda
@@ -1219,6 +1223,53 @@ He has created some sort of functionality (e.g., logging functionality)
   > - network
   > - volume
   
+* In VS Code, open a terminal: 執行 `python app.py`後，開啟 browser，輸入  localhost:5000。
+
+* Lecture 用 `docker images` 查看已經有哪些image 在repository 中。已經有 *myhelloapp*，
+  執行 `docker run -d -p 8000:5000 myhelloapp`後，開啟 browser，輸入  localhost:8000。
+
+* (46:09) Docker image push
+  > ```bash
+  > docker build -t <imagename> .
+  > docker login # 首次登入，需輸入 username 與 password
+  > docker tag myhelloapp <docker帳號>/<repository名> or <image_name>
+  > docker push <docker帳號>/<repository名> or <image_name> # push image 
+  > ```
+
+* (51:00) Checking in Docker Hub/Repository
+
+* (57:51) Flow
+  <pre>
+  Dockerfile -> Docker image -> container
+                    |
+                    v
+                  (push)
+                    |
+                    v
+                Docker Hub -(pull)-> container    
+  </pre>
+
+* (1:00:07) Three ways for creating images
+  <pre>
+  1. Docker file -> image -> container
+  2. Docker Hub -> image -> container (option -d or -i)
+  3. image -> docker container (create image from the docker container itself)
+  -d (detach mode) : In backend process basically your container is running. there's meaning of the detach mode.
+  -i (interactive mode): so there you will find out a terminal you can directly interact with your container.
+  </pre>
+
+* 執行 `docker pull redis` (pulling redis image from Docker Hub)
+
+<pre>
+Inside the docker you'll find out one component that is called "Docker engine".
+
+If you are running this particular image first time (let's say) over the Docker Hub basically you have multiple images. (And let's say) you have an image of MySql. -- just taking an example -- you have an image of MySql over here, where, over Docker Hub. (Let's say) you want to run this particular image inside the container, which is in your local system(your local server). Now see if you are running it first time (you're running this particular image first time) inside the container, so first it will find out inside the system itself. ok. first it will go to the docker engine it will check the image is available or not. If the image is not available then only in that case only it will fetch from the Docker Hub.
+
+if you want to run any sort of an image inside the container (let's say first time you are running it; you are running MySql image) see it is not having MySql image. First it will check [docker engine]  . If it is avilable then directly it will take it over here from here itself from the docker engine. But if it is not available then it will go to the Docker Hub and will try to pull from here.
+
+(let's say) it I'm running second time, then again, it will to to the Docker engine. this time the image is already available over here. The image is already available in my local server. so in that case it won't go to the Docker Hub directly. It will take an image from here itself.
+</pre>
+
 # 參考
 
 * 參1: [MongoDB Basics | Tutorial 4: Create Atlas Cluster](https://www.youtube.com/watch?v=esKNjzDZItQ)
