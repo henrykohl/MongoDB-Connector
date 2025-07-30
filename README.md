@@ -1296,20 +1296,34 @@ He has created some sort of functionality (e.g., logging functionality)
   What I can do as a base image  (let's say) this is our system. As a base image from the Docker Hub,this is what is the Docker Hub. From the Docker Hub, we can keep or we can take the base OS image also. Let's say we're going to take a UBUNTU from the Hub itself. But we won't be having any OS inside the container. This is still true. It's not going to install the entire OS insdie the container. It's just going to take some utility file from the Hub itself.The rest of thing is going to be managed from here the host OS by using the Docker engine.
   </pre>
 
-* (1:20:45)
+* (1:20:45) Take some another image from the Docker Hub
   <pre>
-  take some another image from the Docker Hub
-
-this image is not available in our system. First it will go to the docker engine and it will search that this image is available or not into our local system. Now if it is not able to find it our then directly it will pull it from the Docker Hub itself. The 'container' is nothing our machine only.
-
-docker run -it kalilinux/kali-rolling /bin/sh
-一開始會出現 Unable to find image 'kalilinux/kali-rolling:latest' locally
-然後顯示 latest: Pulling from kalilinux/kali-rolling
-最後出現 # 後就可以輸入 `ls`, cd etc, ls, touch myfile.txt, exit
+  this image is not available in our system. First it will go to the docker engine and it will search that this image is available or not into our local system. Now if it is not able to find it our then directly it will pull it from the Docker Hub itself. The 'container' is nothing our machine only.
+  </pre>
+  > 執行 `docker run -it kalilinux/kali-rolling /bin/sh`
+  <pre>
+  一開始會出現 Unable to find image 'kalilinux/kali-rolling:latest' locally
+  然後顯示 latest: Pulling from kalilinux/kali-rolling
+  最後出現 # 後就可以輸入 'ls', 'cd etc', 'ls', 'touch myfile.txt', 'exit'
   </pre>
 
 * (1:27:54) interactive self with detach mode
-  > there is two ways where we can execute our container so the first way is called 'detach mode' and the second way is called 'interactive mode'.
+  > there is two ways where we can execute our container so the first way is called 'detach mode' and the second way is called 'interactive mode'. \
+  > 執行 `docker rmi -f jenkins/jenkins:lts` (移除 image，'lts' 是 TAG) \
+  > 執行 `docker run -p 8080:8080 jenkins/jenkins:lts`
+  <pre>
+  顯示 Unable to find image 'jenkins/kenins:lts' locally
+  然後顯示 lts: Pulling from jenkins/jenkins
+  ...
+
+  成功後，開啟 browser，輸入 localhost:8080，可以看到 jenkins 畫面 
+  CTRL + C 停止服務
+  </pre>
+
+* (1:46:00) more commands
+  
+
+
 
 # 參考
 
