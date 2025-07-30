@@ -1296,6 +1296,21 @@ He has created some sort of functionality (e.g., logging functionality)
   What I can do as a base image  (let's say) this is our system. As a base image from the Docker Hub,this is what is the Docker Hub. From the Docker Hub, we can keep or we can take the base OS image also. Let's say we're going to take a UBUNTU from the Hub itself. But we won't be having any OS inside the container. This is still true. It's not going to install the entire OS insdie the container. It's just going to take some utility file from the Hub itself.The rest of thing is going to be managed from here the host OS by using the Docker engine.
   </pre>
 
+* (1:20:45)
+  <pre>
+  take some another image from the Docker Hub
+
+this image is not available in our system. First it will go to the docker engine and it will search that this image is available or not into our local system. Now if it is not able to find it our then directly it will pull it from the Docker Hub itself. The 'container' is nothing our machine only.
+
+docker run -it kalilinux/kali-rolling /bin/sh
+一開始會出現 Unable to find image 'kalilinux/kali-rolling:latest' locally
+然後顯示 latest: Pulling from kalilinux/kali-rolling
+最後出現 # 後就可以輸入 `ls`, cd etc, ls, touch myfile.txt, exit
+  </pre>
+
+* (1:27:54) interactive self with detach mode
+  > there is two ways where we can execute our container so the first way is called 'detach mode' and the second way is called 'interactive mode'.
+
 # 參考
 
 * 參1: [MongoDB Basics | Tutorial 4: Create Atlas Cluster](https://www.youtube.com/watch?v=esKNjzDZItQ)
