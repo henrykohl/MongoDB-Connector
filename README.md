@@ -1320,10 +1320,53 @@ He has created some sort of functionality (e.g., logging functionality)
   CTRL + C 停止服務
   </pre>
 
-* (1:46:00) more commands
+* (1:46:00) 
+  > Inside our container we made some changes -- we've created "myfile.txt" \
+  > `docker run --name sunnycontainer -it ubuntu /bin/bash` \
+  > `ls`, `cd tmp`, `ls`, `touch myfile.txt`, `ls`, `exit` \
+  > we can get a difference that what all thing we've changes over here inside the container. \
+  > `docker diff sunnycontainer`
+  <pre>顯示
+  C /tmp
+  A /tmp/myfile.txt
+  C /root
+  A /root/.bash_history
   
+  說明
+  'C' means where you went inside this TMP
+  'A' means you appended this particular file
+  </pre>
+  > `docker commit synnycontainer updatedimage` (container名 與 image名) \
+  > `docker images` (檢查 updatedimage 是否成功建立) 
+  
+* (1:57:40) Push IMAGE to Docker Hub & Pull it from there
+  > We can use it and execute inside the container
 
+* (1:58:33) In VSCode, only keep `Dockerfile`, renew the content (removing `app.py` & commands.txt). 建立檔案 `testfile` 
+  <pre>
+  FROM ubuntu
+  WORKDIR /tmp
+  RUN echo "Subscribe the ineuron intelligence"
+  ENV myname sunny
+  COPY testfile /tmp
+  ADD test.tar.gz /tmp
+  </pre>
+  > 'ADD' : unzip the file from the local workspace from Internet or anywhere
+  ```bash
+  touch test # 建立 test 檔案
+  tar -cvf test.tar test # 建立 test 的 tar 檔
+  gzip test.tar # 建立 test.tar.gz 檔
+  ```
+  > 移除 test (不需要了)
+  ```bash
+  docker build -t newimage . # t: TAG, newimage: IMAGE NAME, '.': local workspace
+  ```
 
+* (2:10:10) In Windows CMD terminal, run `docker images` -- 顯示 newimage
+  > 執行 `docker run -i -t --name newcontainer newimage /bin/bash` (顯示 'root@.../tmp#') \ 
+  > 執行 `ls` (顯示 'test' 與 'testfile')
+
+  * ENV 功能 -- In Windows CMD terminal, run `echo $myname` -- 顯示 sunny
 
 # 參考
 
