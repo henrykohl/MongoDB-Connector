@@ -47,8 +47,8 @@ python main.py
 ## (45:20) Corona scenario
 
 * 開發 Aarogya Setu 應用程式 -- (顧客 Government)，(賣方 Organization)有以下兩者：
-  > 交給 XYZ 公司 ：需 8~10 months，遵循 SDLC 五階段 \
-  > 交給 abc 公司 ：需 2~3 weeks，每一個iteration 只實現簡單一部份功能！
+  > 交給 XYZ 公司 ：需 8~10 months，遵循 SDLC 五階段 \n
+  > 交給 abc 公司 ：需 2~3 weeks，每一個iteration 只實現簡單一部份功能！ \n
 
 * launch the APP in iterations. At the first place, create a simple UI. Take the information from the user. Based on that, show the basic guidelines/ only the basic detail. In the next iteration, keep it to the advanced one. Add a few more information(e.g., regarding traveling and all). In the third iteration, again add something over there. So they are working in iteration. The first iteration follows all the step regrading 五階段 in waterfall + production. Deploy and then, the APP is visible to everyone. In the second iteration, again, they came up, again, they have planned with a new feature and they have implemented that and then basically they have tested and then deployed. So, they are working on iteration-wise. They are not going to build up the entire APP in a single shot and then they are going to test it and then they are going to be deployed.
 
@@ -1367,6 +1367,12 @@ He has created some sort of functionality (e.g., logging functionality)
   > 執行 `ls` (顯示 'test' 與 'testfile')
 
   * ENV 功能 -- In Windows CMD terminal, run `echo $myname` -- 顯示 sunny
+
+# Lecture 9 Note -- [MLOps End to End Project](https://www.youtube.com/watch?v=G6frVmkVMr4)
+
+* Github Resource：[Gemstone-Price-Prediction-End-to-End-Pipeline](https://github.com/sunnysavita10/Gemstone-Price-Prediction-End-to-End-Pipelin) 
+
+* More details: [My Gemstone Github](https://github.com/henrykohl/Gemstone-Price-Prediction-End-to-End-Pipeline)
 
 # 參考
 
