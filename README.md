@@ -849,7 +849,7 @@ He has created some sort of functionality (e.g., logging functionality)
 >  > you can keep it inside your temp repository. 
 
 
-* (1:37:19) p4actical demo
+* (1:37:19) practical demo
 
   > ```bash
   > touch stashingdemo.txt
@@ -896,7 +896,7 @@ He has created some sort of functionality (e.g., logging functionality)
   > git stash list # no more message
   > ```
 
-## (1:53:30) Revert adn Reset
+## (1:53:30) Revert and Reset
 
   > <pre>git local system:
   > ___________________
@@ -1049,12 +1049,12 @@ He has created some sort of functionality (e.g., logging functionality)
   Whenever we are going to allot the memory, the configuration, to my VM, it's going to be fixed.
 
   What we are going to do is to share the Hardware with this VM. But we are installing a separate OS over here. If I want to run this VM so I will have to install the separate OS.
-  So let's say here I'm running Mac in VM1, Linux in VM2, Win in VM3. Separately I have to install it and it required more memory.
+  So let's say here I'm running Mac in VM1, Linux in VM2, Win in VM3. Separately I have to install it and it required more memory.                                   
    ___________________________________
   |                                   |
   |     VM1        VM2        VM3     | 
   |  _________  _________  _________  |
-  |  |  APP  |  |  APP  |  |  APP  |  |                   |
+  |  |  APP  |  |  APP  |  |  APP  |  |
   |  |_______|  |_______|  |_______|  |
   |  |  Mac  |  | Linux |  |  Win  |  | 
   |  |_______|  |_______|  |_______|  |
@@ -1075,7 +1075,7 @@ He has created some sort of functionality (e.g., logging functionality)
 * (1:12:00) Docker -- providing the containers
   <pre>
   Docker -- container -- Advanced VM, Isolated Process
-
+                             
               [single host]
    ___________________________________
   |                                   |
@@ -1117,14 +1117,25 @@ He has created some sort of functionality (e.g., logging functionality)
 * installation [Install Docker Desktop on Windows](https://docs.docker.com/desktop/setup/install/windows-install/)
 
 * In Windows system, open a terminal: 
-  > - run `docker`, `docker ps`, `docker images` (for testing) 
-  > - run `mkdir dockertest`, `cd dockertest`, `code .` (open VSCode)
+  > - run 
+  ```bash
+  docker
+  docker ps
+  docker images ## (for testing) 
+  ```
+  > - run 
+  ```bash
+  mkdir dockertest
+  cd dockertest
+  code . ## (open VSCode)
+  ```
   <pre>
   執行 `docker images` 遇到 error during connect: This error may indicate that the docker daemon is...
-  開啟 Docker Desktop，用 docker/getting-started 啟動~
+  (1:35:35) 解決方式：開啟 Docker Desktop，用 docker/getting-started 啟動~
   </pre>
 
 * In VS Code, open a terminal and select *Command Prompt*:
+  > Lecture Demo 時，用了 Anaconda3 的 activate.bat 進入 '(base)' 模式
 
 * 建立/完成 `app.py`，執行 `python app.py`，開啟 browser，輸入  localhost:5000。完成後，中斷 `app.py` 程序
   ```python
