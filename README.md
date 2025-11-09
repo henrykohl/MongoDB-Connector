@@ -1114,6 +1114,8 @@ He has created some sort of functionality (e.g., logging functionality)
 
 ## (1:28:40) Docker 
 
+* 此章節實作，參見 [Docker demo](https://github.com/henrykohl/Flask-tutorials/tree/main/dockertest)
+
 * installation [Install Docker Desktop on Windows](https://docs.docker.com/desktop/setup/install/windows-install/)
 
 * In Windows system, open a terminal: 
@@ -1219,16 +1221,19 @@ He has created some sort of functionality (e.g., logging functionality)
 
 # Lecture 8 Note -- [DOCKER - Part 2 | MLOps Foundation](https://www.youtube.com/watch?v=wQdOTdM0eRo)
 
+* 此章節實作，參見 [Docker demo 2](https://github.com/henrykohl/Flask-tutorials/tree/main/dockerhello)
+
 * In Windows system, open a terminal: 
   > ```bash
   > docker 
-  > where docker
+  > where docker   # 用在 Windows
+  > # which docker # 用在 Linux
   > docker info
   > docker -v
   >
   > docker images
-  > docker ps
-  > docker ps -a
+  > docker ps     # 列出 Docker 容器(只顯示運行中的容器)
+  > docker ps -a  # 顯示所有容器，包括停止的容器
   > ```
 
 * Agenda
@@ -1242,20 +1247,31 @@ He has created some sort of functionality (e.g., logging functionality)
   > - network
   > - volume
   
-* In VS Code, open a terminal: 執行 `python app.py`後，開啟 browser，輸入  localhost:5000。
+* In VS Code, open a terminal: 執行 `python app.py` (Lecture 7 建立的) 後，開啟 browser，輸入  localhost:5000。
 
-* Lecture 用 `docker images` 查看已經有哪些image 在repository 中。已經有 *myhelloapp*，
-  執行 `docker run -d -p 8000:5000 myhelloapp`後，開啟 browser，輸入  localhost:8000。
+* Lecture Demo 執行
+  ```bash
+  docker images # 查看已經有哪些image 在repository 中。Lecture 7 建立的 image 為 myhelloapp 會顯示
+  docker run -d -p 8000:5000 myhelloapp # 開啟 browser，輸入  localhost:8000
+  ``` 
+  > -d: 以分離模式執行 \
+  > -p 8000:5000 : 向外開啟通訊埠，並將Host的8000埠轉發至容器的5000埠
+  ```bash
+  docker ps # 複製想中止的 CONTAINER ID
+  docker stop <CONTAINER ID> 
+  ```
 
 * (46:09) Docker image push
   > ```bash
-  > docker build -t <imagename> .
-  > docker login # 首次登入，需輸入 username 與 password
+  > # docker build -t <imagename> . ## 若名稱 <imagename> 的 image 存在，則不需要執行 
+  > docker login   # 根據指示完成登入步驟
+  > # docker login -u <username> ## 此為登入的另一個方式，接著輸入 password
   > docker tag myhelloapp <docker帳號>/<repository名> or <image_name>
   > docker push <docker帳號>/<repository名> or <image_name> # push image 
   > ```
 
-* (51:00) Checking in Docker Hub/Repository
+
+* (51:00) Checking in Docker Hub/Repository，看看是否 push 成功
 
 * (57:51) Flow
   <pre>
@@ -1277,7 +1293,11 @@ He has created some sort of functionality (e.g., logging functionality)
   -i (interactive mode): so there you will find out a terminal you can directly interact with your container.
   </pre>
 
-* (1:04:55) 執行 `docker pull redis` (pulling redis image from Docker Hub)
+* (1:04:55) 執行 
+  ```bash
+  docker pull redis # pulling redis image from Docker Hub
+  docker images # REPOSITORY 中產生 redis 
+  ```
   <pre>
               (1) Docker engine   /_________________
                               ^   \                 |
@@ -1297,16 +1317,18 @@ He has created some sort of functionality (e.g., logging functionality)
   (let's say) it I'm running second time, then again, it will to to the Docker engine. this time the image is already available over here. The image is already available in my local server. so in that case it won't go to the Docker Hub directly. It will take an image from here [docker engine] itself.
   </pre>
 
-* `docker images` (*redis* 已列在其中)
+* 執行
+  ```bash
+  # docker run -i -t redis /bin/bash # 似乎沒反應
+  docker run -i -t redis /bin/sh # 在 '#' 之後輸入 ls 或 ls -a ，顯示 沒有什麼東西
 
-* `docker run -i -t redis /bin/sh` (-i -t: interactive mode for the terminal; /bin/sh: command)
-  > 在 # 之後輸入 `ls` 或 `ls -a` 都沒有東西
+  docker pull ubuntu ## Lecture demo 沒執行，因為 ubuntu image 已存在
 
-* `docker run -it ubuntu /bin/sh`
-  > 在 > 之後輸入 `ls` 可見到許多資料夾
+  docker run -it ubuntu /bin/sh # 在 '>' 之後輸入 ls 可見到許多資料夾
 
-* `docker run -it ubuntu /bin/bash`
-  > 輸入  `ls`
+  docker run -it ubuntu /bin/bash # 輸入 ls 或 cd bin 在 ls，用 exit 退出
+  ```
+  > -i -t: interactive mode for the terminal; /bin/sh: command
 
 * (1:15:15) 
   <pre>
