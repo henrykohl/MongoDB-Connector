@@ -1341,17 +1341,25 @@ He has created some sort of functionality (e.g., logging functionality)
   <pre>
   this image is not available in our system. First it will go to the docker engine and it will search that this image is available or not into our local system. Now if it is not able to find it our then directly it will pull it from the Docker Hub itself. The 'container' is nothing our machine only.
   </pre>
-  > 執行 `docker run -it kalilinux/kali-rolling /bin/sh`
+
+* 執行 `docker run -it kalilinux/kali-rolling /bin/sh`
   <pre>
   一開始會出現 Unable to find image 'kalilinux/kali-rolling:latest' locally
   然後顯示 latest: Pulling from kalilinux/kali-rolling
   最後出現 # 後就可以輸入 'ls', 'cd etc', 'ls', 'touch myfile.txt', 'exit'
   </pre>
 
+* 執行 `docker ps -a`
+  > 可以見到 IMAGE 為 'kalilinux/kali-rolling', COMMAND 為 "/bin/sh" 的 container
+
 * (1:27:54) interactive self with detach mode
-  > there is two ways where we can execute our container so the first way is called 'detach mode' and the second way is called 'interactive mode'. \
-  > 執行 `docker rmi -f jenkins/jenkins:lts` (移除 image，'lts' 是 TAG) \
-  > 執行 `docker run -p 8080:8080 jenkins/jenkins:lts`
+  > there is two ways where we can execute our container so the first way is called 'detach mode' and the second way is called 'interactive mode'. 
+
+* 執行
+  ```bash
+  docker rmi -f jenkins/jenkins:lts # 移除 image，'lts' 是 TAG
+  docker run -p 8080:8080 jenkins/jenkins:lts
+  ```
   <pre>
   顯示 Unable to find image 'jenkins/kenins:lts' locally
   然後顯示 lts: Pulling from jenkins/jenkins
@@ -1361,12 +1369,18 @@ He has created some sort of functionality (e.g., logging functionality)
   CTRL + C 停止服務
   </pre>
 
-* (1:46:00) 
-  > Inside our container we made some changes -- we've created "myfile.txt" \
-  > `docker run --name sunnycontainer -it ubuntu /bin/bash` \
-  > `ls`, `cd tmp`, `ls`, `touch myfile.txt`, `ls`, `exit` \
-  > we can get a difference that what all thing we've changes over here inside the container. \
-  > `docker diff sunnycontainer`
+* (1:46:00) 指定 CONTAINER NAME 為 sunnycontainer; 使用的 IMAGE 為 ubuntu
+  ```bash
+  docker images # 見到 ubuntu 已列在其中
+  docker run --name sunnycontainer -it ubuntu /bin/bash
+  ```
+  > 執行 `ls`, `cd tmp`, `ls`, `touch myfile.txt`, `ls`, `exit`
+
+* Inside our container we made some changes -- we've created "myfile.txt". \
+  we can get a difference that what all thing we've changes over here inside the container. 
+  ```bash
+  docker diff sunnycontainer
+  ```
   <pre>顯示
   C /tmp
   A /tmp/myfile.txt
@@ -1374,11 +1388,13 @@ He has created some sort of functionality (e.g., logging functionality)
   A /root/.bash_history
   
   說明
-  'C' means where you went inside this TMP
+  'C' means the changes where you went inside the /tmp or /root
   'A' means you appended this particular file
   </pre>
-  > `docker commit synnycontainer updatedimage` (container名 與 image名) \
-  > `docker images` (檢查 updatedimage 是否成功建立) 
+  ```bash
+  docker commit synnycontainer updatedimage # (container名 與 image名) 
+  docker images # (檢查 updatedimage 是否成功建立) 
+  ```
   
 * (1:57:40) Push IMAGE to Docker Hub & Pull it from there
   > We can use it and execute inside the container
@@ -1392,7 +1408,9 @@ He has created some sort of functionality (e.g., logging functionality)
   COPY testfile /tmp
   ADD test.tar.gz /tmp
   </pre>
-  > 'ADD' : unzip the file from the local workspace from Internet or anywhere
+  > myname 是 variable, sunny 是 value。 \
+  > 'ADD' : unzip the file from the local workspace from Internet or anywhere \
+  > `ENV myname sunny` 是用於 Lecture Demo中，但實作時(codeanywhere)會產生警告
   ```bash
   touch test # 建立 test 檔案
   tar -cvf test.tar test # 建立 test 的 tar 檔
@@ -1403,11 +1421,14 @@ He has created some sort of functionality (e.g., logging functionality)
   docker build -t newimage . # t: TAG, newimage: IMAGE NAME, '.': local workspace
   ```
 
-* (2:10:10) In Windows CMD terminal, run `docker images` -- 顯示 newimage
-  > 執行 `docker run -i -t --name newcontainer newimage /bin/bash` (顯示 'root@.../tmp#') \ 
+* (2:10:10) In Windows CMD terminal, 
+  ```bash
+  docker images # # REPOSITORY 顯示 newimage 生成
+  docker run -i -t --name newcontainer newimage /bin/bash  
+  ```
+  > 顯示 'root@.../tmp#'
   > 執行 `ls` (顯示 'test' 與 'testfile')
-
-  * ENV 功能 -- In Windows CMD terminal, run `echo $myname` -- 顯示 sunny
+  > 執行 `echo $myname` (顯示 sunny)
 
 # Lecture 9 Note -- [MLOps End to End Project](https://www.youtube.com/watch?v=G6frVmkVMr4)
 
