@@ -1289,8 +1289,8 @@ He has created some sort of functionality (e.g., logging functionality)
   1. Docker file -> image -> container
   2. Docker Hub -> image -> container (option -d or -i)
   3. image -> docker container (create image from the docker container itself)
-  -d (detach mode) : In backend process basically your container is running. there's meaning of the detach mode.
-  -i (interactive mode): so there you will find out a terminal you can directly interact with your container.
+  。 -d (detach mode) : In backend process basically your container is running. there's meaning of the detach mode.
+  。 -i (interactive mode): so there you will find out a terminal you can directly interact with your container.
   </pre>
 
 * (1:04:55) 執行 
@@ -1312,7 +1312,7 @@ He has created some sort of functionality (e.g., logging functionality)
 
   Now see if you are running it first time (you're running this particular image first time) inside the container, so first it will find out inside the system [docker engine] itself. So first it will go to the docker engine it will check the image is available or not. If the image is not available then only in that case only it will fetch from the Docker Hub.
 
-  if you want to run any sort of an image inside the container (let's say first time you are running it; you are running MySql image) see it is not having MySql image. First it will check [docker engine]  . If it is avilable then directly it will take it over here from here itself from the docker engine. But if it is not available then it will go to the Docker Hub and will try to pull from here.
+  if you want to run any sort of an image inside the container (let's say first time you are running it; you are running MySql image) see it is not having MySql image. First it will check [docker engine]. If it is avilable then directly it will take it over here from here itself from the docker engine. But if it is not available then it will go to the Docker Hub and will try to pull from here.
 
   (let's say) it I'm running second time, then again, it will to to the Docker engine. this time the image is already available over here. The image is already available in my local server. so in that case it won't go to the Docker Hub directly. It will take an image from here [docker engine] itself.
   </pre>
@@ -1328,7 +1328,7 @@ He has created some sort of functionality (e.g., logging functionality)
 
   docker run -it ubuntu /bin/bash # 輸入 ls 或 cd bin 在 ls，用 exit 退出
   ```
-  > -i -t: interactive mode for the terminal; /bin/sh: command
+  > -i -t: **interactive** mode for the **terminal**; /bin/sh: command
 
 * (1:15:15) 
   <pre>
@@ -1342,14 +1342,18 @@ He has created some sort of functionality (e.g., logging functionality)
   this image is not available in our system. First it will go to the docker engine and it will search that this image is available or not into our local system. Now if it is not able to find it our then directly it will pull it from the Docker Hub itself. The 'container' is nothing our machine only.
   </pre>
 
-* 執行 `docker run -it kalilinux/kali-rolling /bin/sh`
-  <pre>
-  一開始會出現 Unable to find image 'kalilinux/kali-rolling:latest' locally
-  然後顯示 latest: Pulling from kalilinux/kali-rolling
-  最後出現 # 後就可以輸入 'ls', 'cd etc', 'ls', 'touch myfile.txt', 'exit'
-  </pre>
+* 執行 
+  ```bash
+  docker run -it kalilinux/kali-rolling /bin/sh
+  ```
+  > 一開始會出現 Unable to find image 'kalilinux/kali-rolling:latest' locally \
+  > 然後顯示 latest: Pulling from kalilinux/kali-rolling \
+  > 最後出現 # 後就可以輸入 `ls`, `cd /etc`, `ls`, `touch myfile.txt`, `exit`
 
-* 執行 `docker ps -a`
+* 執行 
+  ```bash
+  docker ps -a
+  ```
   > 可以見到 IMAGE 為 'kalilinux/kali-rolling', COMMAND 為 "/bin/sh" 的 container
 
 * (1:27:54) interactive self with detach mode
@@ -1357,7 +1361,7 @@ He has created some sort of functionality (e.g., logging functionality)
 
 * 執行
   ```bash
-  docker rmi -f jenkins/jenkins:lts # 移除 image，'lts' 是 TAG
+  docker rmi -f jenkins/jenkins:lts # 移除 image，'lts' 是 TAG。注意不能用 rm ，不能只寫 jenkins/jenkins
   docker run -p 8080:8080 jenkins/jenkins:lts
   ```
   <pre>
@@ -1372,7 +1376,7 @@ He has created some sort of functionality (e.g., logging functionality)
 * (1:46:00) 指定 CONTAINER NAME 為 sunnycontainer; 使用的 IMAGE 為 ubuntu
   ```bash
   docker images # 見到 ubuntu 已列在其中
-  docker run --name sunnycontainer -it ubuntu /bin/bash
+  docker run --name sunnycontainer -it ubuntu /bin/bash # interactive mode with terminal
   ```
   > 執行 `ls`, `cd tmp`, `ls`, `touch myfile.txt`, `ls`, `exit`
 
@@ -1399,7 +1403,7 @@ He has created some sort of functionality (e.g., logging functionality)
 * (1:57:40) Push IMAGE to Docker Hub & Pull it from there
   > We can use it and execute inside the container
 
-* (1:58:33) In VSCode, only keep `Dockerfile`, renew the content (removing `app.py` & commands.txt). 建立檔案 `testfile` 
+* (1:58:33) In VSCode, only keep `Dockerfile`, renew the content (removing `app.py` & `commands.txt`). 建立檔案 `testfile` 
   <pre>
   FROM ubuntu
   WORKDIR /tmp
@@ -1418,7 +1422,7 @@ He has created some sort of functionality (e.g., logging functionality)
   ```
   > 移除 test (不需要了)
   ```bash
-  docker build -t newimage . # t: TAG, newimage: IMAGE NAME, '.': local workspace
+  docker build -t newimage . # t: TAG, newimage: IMAGE NAME, '.': current working directory
   ```
 
 * (2:10:10) In Windows CMD terminal, 
@@ -1426,8 +1430,8 @@ He has created some sort of functionality (e.g., logging functionality)
   docker images # # REPOSITORY 顯示 newimage 生成
   docker run -i -t --name newcontainer newimage /bin/bash  
   ```
-  > 顯示 'root@.../tmp#'
-  > 執行 `ls` (顯示 'test' 與 'testfile')
+  > 顯示 'root@.../tmp#' \
+  > 執行 `ls` (顯示 'test' 與 'testfile') \
   > 執行 `echo $myname` (顯示 sunny)
 
 # Lecture 9 Note -- [MLOps End to End Project](https://www.youtube.com/watch?v=G6frVmkVMr4)
