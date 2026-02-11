@@ -1,4 +1,4 @@
-# neurolab-mongo-python
+# neurolab-mongo-python (Lecture Demo)
 
 ![image](https://user-images.githubusercontent.com/57321948/196933065-4b16c235-f3b9-4391-9cfe-4affcec87c35.png)
 
@@ -13,6 +13,8 @@ pip install -r requirements.txt
 ```bash
 python main.py
 ```
+
+# My Note
 
 * Ineuron Lab 所建立的 MongoDB 範本，但無法直接使用 ineuron lab ，此 section 是手動建立的（從sunnysavita10/MongoDB-Connector-PYPI-Package 的初始 commit 內容複製而來）！
 
@@ -1436,7 +1438,7 @@ He has created some sort of functionality (e.g., logging functionality)
 
 # Lecture 9 Note -- [MLOps End to End Project](https://www.youtube.com/watch?v=G6frVmkVMr4)
 
-* Github Resource：[Gemstone-Price-Prediction-End-to-End-Pipeline](https://github.com/sunnysavita10/Gemstone-Price-Prediction-End-to-End-Pipelin) 
+* Github Resource：[Gemstone-Price-Prediction-End-to-End-Pipeline](https://github.com/sunnysavita10/Gemstone-Price-Prediction-End-to-End-Pipeline) 
 
 * More details: [My Gemstone Github](https://github.com/henrykohl/Gemstone-Price-Prediction-End-to-End-Pipeline)
 
